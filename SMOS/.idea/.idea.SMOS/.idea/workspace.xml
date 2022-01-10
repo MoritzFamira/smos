@@ -5,8 +5,11 @@
     <projectFile profileName="IIS Express">SMOS/SMOS.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53166feb-8b0e-4067-bcfd-79fda7b99562" name="Changes" comment="Added Swagger Package">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="53166feb-8b0e-4067-bcfd-79fda7b99562" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.SMOS/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SMOS/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SMOS/obj/Debug/net6.0/SMOS.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/SMOS/obj/Debug/net6.0/SMOS.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SMOS/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/SMOS/obj/rider.project.restore.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,7 +26,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/.." value="MFA/Backendcreation" />
+        <entry key="$PROJECT_DIR$/.." value="MFA/static_html_creation" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -89,7 +92,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1641821304234</updated>
-      <workItem from="1641821372042" duration="2076000" />
+      <workItem from="1641821372042" duration="2261000" />
+      <workItem from="1641823703264" duration="374000" />
     </task>
     <task id="LOCAL-00001" summary="added Pages folder for Frontend">
       <created>1641822744125</created>
@@ -105,14 +109,21 @@
       <option name="project" value="LOCAL" />
       <updated>1641823236777</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="added gitignore">
+      <created>1641823485389</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1641823485389</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
-  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -125,7 +136,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="main" />
+                        <option value="origin/main" />
                       </list>
                     </value>
                   </entry>
@@ -136,12 +147,14 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="added Pages folder for Frontend" />
     <MESSAGE value="Added Swagger Package" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Swagger Package" />
+    <MESSAGE value="added gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="added gitignore" />
   </component>
 </project>
