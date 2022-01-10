@@ -5,12 +5,7 @@
     <projectFile profileName="IIS Express">SMOS/SMOS.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53166feb-8b0e-4067-bcfd-79fda7b99562" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.SMOS/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SMOS/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SMOS/obj/Debug/net6.0/SMOS.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/SMOS/obj/Debug/net6.0/SMOS.csproj.AssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SMOS/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/SMOS/obj/rider.project.restore.info" afterDir="false" />
-    </list>
+    <list default="true" id="53166feb-8b0e-4067-bcfd-79fda7b99562" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -93,7 +88,7 @@
       <option name="presentableId" value="Default" />
       <updated>1641821304234</updated>
       <workItem from="1641821372042" duration="2261000" />
-      <workItem from="1641823703264" duration="374000" />
+      <workItem from="1641823703264" duration="550000" />
     </task>
     <task id="LOCAL-00001" summary="added Pages folder for Frontend">
       <created>1641822744125</created>
@@ -116,7 +111,14 @@
       <option name="project" value="LOCAL" />
       <updated>1641823485389</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="added proper gitignore">
+      <created>1641824097963</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1641824097964</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -136,7 +138,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/main" />
+                        <option value="MFA/static_html_creation" />
                       </list>
                     </value>
                   </entry>
@@ -155,6 +157,7 @@
     <MESSAGE value="added Pages folder for Frontend" />
     <MESSAGE value="Added Swagger Package" />
     <MESSAGE value="added gitignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="added gitignore" />
+    <MESSAGE value="added proper gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="added proper gitignore" />
   </component>
 </project>
