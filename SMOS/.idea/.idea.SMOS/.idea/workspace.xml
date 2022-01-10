@@ -5,7 +5,9 @@
     <projectFile profileName="IIS Express">SMOS/SMOS.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53166feb-8b0e-4067-bcfd-79fda7b99562" name="Changes" comment="" />
+    <list default="true" id="53166feb-8b0e-4067-bcfd-79fda7b99562" name="Changes" comment="Added Swagger Package">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -25,6 +27,9 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/SMOS/obj/Debug/net6.0/.NETCoreApp,Version=v6.0.AssemblyAttributes.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="23VZchAXdTN9j0UES54262Qsj07" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -84,7 +89,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1641821304234</updated>
-      <workItem from="1641821372042" duration="1728000" />
+      <workItem from="1641821372042" duration="2076000" />
     </task>
     <task id="LOCAL-00001" summary="added Pages folder for Frontend">
       <created>1641822744125</created>
@@ -93,7 +98,14 @@
       <option name="project" value="LOCAL" />
       <updated>1641822744125</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added Swagger Package">
+      <created>1641823236777</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1641823236777</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -129,6 +141,7 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="added Pages folder for Frontend" />
-    <option name="LAST_COMMIT_MESSAGE" value="added Pages folder for Frontend" />
+    <MESSAGE value="Added Swagger Package" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Swagger Package" />
   </component>
 </project>
