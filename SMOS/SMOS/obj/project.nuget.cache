@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "pcbn355iZJ7O5Vn0tQTgcZjKTak8LpGZlap0JQtQXrRNSgnGkar994Lq60YE3wE03Wst8h2cS+dWD7OiPEf7fw==",
+  "success": true,
+  "projectFilePath": "C:\\Schule\\POS\\smos\\SMOS\\SMOS\\SMOS.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\famir\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\famir\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\famir\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
+    "C:\\Users\\famir\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
+    "C:\\Users\\famir\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
+    "C:\\Users\\famir\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.2.3\\swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512"
+  ],
+  "logs": []
+}
