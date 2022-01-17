@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Schule\\POS\\smos\\SMOS\\SMOS\\SMOS.csproj": {}
+    "C:\\Users\\Moritz\\RiderProjects\\mos\\SMOS\\SMOS\\SMOS.csproj": {}
   },
   "projects": {
-    "C:\\Schule\\POS\\smos\\SMOS\\SMOS\\SMOS.csproj": {
+    "C:\\Users\\Moritz\\RiderProjects\\mos\\SMOS\\SMOS\\SMOS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Schule\\POS\\smos\\SMOS\\SMOS\\SMOS.csproj",
+        "projectUniqueName": "C:\\Users\\Moritz\\RiderProjects\\mos\\SMOS\\SMOS\\SMOS.csproj",
         "projectName": "SMOS",
-        "projectPath": "C:\\Schule\\POS\\smos\\SMOS\\SMOS\\SMOS.csproj",
-        "packagesPath": "C:\\Users\\famir\\.nuget\\packages\\",
-        "outputPath": "C:\\Schule\\POS\\smos\\SMOS\\SMOS\\obj\\",
+        "projectPath": "C:\\Users\\Moritz\\RiderProjects\\mos\\SMOS\\SMOS\\SMOS.csproj",
+        "packagesPath": "C:\\Users\\Moritz\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Moritz\\RiderProjects\\mos\\SMOS\\SMOS\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\famir\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Moritz\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,6 +40,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "MySql.Data": {
+              "target": "Package",
+              "version": "[8.0.27, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.2.3, )"

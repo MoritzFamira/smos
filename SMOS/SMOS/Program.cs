@@ -1,9 +1,6 @@
-using System.IO;
-using Microsoft.AspNetCore;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
-using Microsoft.Extensions.Hosting;
+using MySql.Data.MySqlClient;
+using SMOS.DataBase;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -34,5 +31,17 @@ app.UseFileServer(new FileServerOptions
         Path.Combine(Directory.GetCurrentDirectory(), "Pages")),
     RequestPath = ""
 });
+
+//TODO Establish connection to MySQL Database & Make sure all the tables are initialized
+var dbCon = DBConnection.Instance();
+if (dbCon.IsConnect())
+{
+    //TODO Check if the database is there
+    string schemaAndDatabaseTest = "CREATE DATABASE IF NOT EXISTS mos;USE mos;";
+    var cmd = new MySqlCommand(schemaAndDatabaseTest, dbCon.Connection);
+    Console.WriteLine("Creating Database");
+    cmd.ExecuteReader();
+    dbCon.Close();
+}
 
 app.Run();
