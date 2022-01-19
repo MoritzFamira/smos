@@ -1,0 +1,166 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/moritz/Projects/smos/SMOS/MOS.Test/MOS.Test.csproj": {}
+  },
+  "projects": {
+    "/home/moritz/Projects/smos/SMOS/MOS.Test/MOS.Test.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/moritz/Projects/smos/SMOS/MOS.Test/MOS.Test.csproj",
+        "projectName": "MOS.Test",
+        "projectPath": "/home/moritz/Projects/smos/SMOS/MOS.Test/MOS.Test.csproj",
+        "packagesPath": "/home/moritz/.nuget/packages/",
+        "outputPath": "/home/moritz/Projects/smos/SMOS/MOS.Test/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/moritz/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "/home/moritz/Projects/smos/SMOS/SMOS/SMOS.csproj": {
+                "projectPath": "/home/moritz/Projects/smos/SMOS/SMOS/SMOS.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[16.11.0, )"
+            },
+            "NUnit": {
+              "target": "Package",
+              "version": "[3.13.2, )"
+            },
+            "NUnit3TestAdapter": {
+              "target": "Package",
+              "version": "[4.0.0, )"
+            },
+            "coverlet.collector": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.0, 6.0.0]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.100/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/moritz/Projects/smos/SMOS/SMOS/SMOS.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/moritz/Projects/smos/SMOS/SMOS/SMOS.csproj",
+        "projectName": "SMOS",
+        "projectPath": "/home/moritz/Projects/smos/SMOS/SMOS/SMOS.csproj",
+        "packagesPath": "/home/moritz/.nuget/packages/",
+        "outputPath": "/home/moritz/Projects/smos/SMOS/SMOS/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/moritz/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "MySql.Data": {
+              "target": "Package",
+              "version": "[8.0.27, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.2.3, )"
+            },
+            "Swashbuckle.AspNetCore.Swagger": {
+              "target": "Package",
+              "version": "[6.2.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.0, 6.0.0]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.100/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

@@ -1047,26 +1047,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Moritz\\.nuget\\packages\\": {}
+    "/home/moritz/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Moritz\\RiderProjects\\mos\\SMOS\\SMOS\\SMOS.csproj",
+      "projectUniqueName": "/home/moritz/Projects/smos/SMOS/SMOS/SMOS.csproj",
       "projectName": "SMOS",
-      "projectPath": "C:\\Users\\Moritz\\RiderProjects\\mos\\SMOS\\SMOS\\SMOS.csproj",
-      "packagesPath": "C:\\Users\\Moritz\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Moritz\\RiderProjects\\mos\\SMOS\\SMOS\\obj\\",
+      "projectPath": "/home/moritz/Projects/smos/SMOS/SMOS/SMOS.csproj",
+      "packagesPath": "/home/moritz/.nuget/packages/",
+      "outputPath": "/home/moritz/Projects/smos/SMOS/SMOS/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Moritz\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/home/moritz/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -1108,6 +1106,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[6.0.0, 6.0.0]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -1116,7 +1120,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.100/RuntimeIdentifierGraph.json"
       }
     }
   }
