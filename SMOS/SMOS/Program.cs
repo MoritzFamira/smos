@@ -34,14 +34,40 @@ app.UseFileServer(new FileServerOptions
 
 //TODO Establish connection to MySQL Database & Make sure all the tables are initialized
 var dbCon = DBConnection.Instance();
-if (dbCon.IsConnect())
+dbCon.Server = "localhost";
+dbCon.DatabaseName = "";
+dbCon.UserName = "root";
+dbCon.Password = "";
+try
 {
-    //TODO Check if the database is there
-    string schemaAndDatabaseTest = "CREATE DATABASE IF NOT EXISTS mos;USE mos;";
-    var cmd = new MySqlCommand(schemaAndDatabaseTest, dbCon.Connection);
-    Console.WriteLine("Creating Database");
-    cmd.ExecuteReader();
-    dbCon.Close();
+    if (dbCon.IsConnect())
+    {
+        //TODO Check if the database is there
+        string schemaAndDatabaseTest = @"create database if not exists mos;
+        use mos;
+        set foreign_key_checks = 0;
+        create table if not exists p_products(
+            p_id int primary key,
+            p_name varchar(255),
+            p_price int,
+            p_mt_type int,
+            foreign key (p_mt_type) references mt_merchtypes (mt_id)
+        );
+        create table if not exists mt_merchtypes (
+            mt_id int primary key,
+            mt_name varchar(255)
+        );
+        set foreign_key_checks = 1;";
+        var cmd = new MySqlCommand(schemaAndDatabaseTest, dbCon.Connection);
+        Console.WriteLine("Creating Database");
+        cmd.ExecuteReader();
+        dbCon.Close();
+    }
 }
+catch (Exception e)
+{
+    Console.WriteLine("Cannot connect to Database!");
+}
+
 
 app.Run();
