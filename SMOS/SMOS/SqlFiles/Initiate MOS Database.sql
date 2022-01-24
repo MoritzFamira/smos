@@ -19,6 +19,9 @@ create table if not exists u_users(
     u_dateofcreation datetime
 );
 create table if not exists s_submissions(
-    
+    s_id int primary key not null auto_increment,
+    s_u_artist int,
+    #TODO
+    foreign key (s_u_artist) references u_users (u_id)
 );
 set foreign_key_checks = 1;
