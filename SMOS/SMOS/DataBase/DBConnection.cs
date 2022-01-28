@@ -6,6 +6,10 @@ public class DBConnection
 {
     private DBConnection()
     {
+        Server = "localhost";
+        DatabaseName = "";
+        UserName = "root";
+        Password = "";
     }
 
     public string Server { get; set; }
