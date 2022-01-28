@@ -27,8 +27,8 @@ public class ProductsController : ControllerBase
         {
             if (dbCon.IsConnect())
             {
-                string schemaAndDatabaseTest = @"select p_id,p_name,p_price
-                    from p_products";
+                string schemaAndDatabaseTest = @"use mos; select p_id,p_name,p_price
+                    from p_products;";
                 var cmd = new MySqlCommand(schemaAndDatabaseTest, dbCon.Connection);
                 Console.WriteLine("Getting Products");
                 var reader = cmd.ExecuteReader();
