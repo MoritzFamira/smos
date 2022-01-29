@@ -15,21 +15,16 @@ public class ProductsController : ControllerBase
     public IEnumerable<Product> Get()
     {
         Product[] products = new Product[]{};
-        //TODO find a better way of connecting to database
         var dbCon = DBConnection.Instance();
         //this is needed to reset the connection
-        dbCon.Connection = null;
-        dbCon.Server = "localhost";
-        dbCon.DatabaseName = "";
-        dbCon.UserName = "root";
-        dbCon.Password = "";
+        dbCon.Reset();
         try
         {
             if (dbCon.IsConnect())
             {
-                string schemaAndDatabaseTest = @"use mos; select p_id,p_name,p_price
+                string getProducts = @"use mos; select p_id,p_name,p_price
                     from p_products;";
-                var cmd = new MySqlCommand(schemaAndDatabaseTest, dbCon.Connection);
+                var cmd = new MySqlCommand(getProducts, dbCon.Connection);
                 Console.WriteLine("Getting Products");
                 var reader = cmd.ExecuteReader();
                 

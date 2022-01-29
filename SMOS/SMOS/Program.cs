@@ -33,11 +33,8 @@ app.UseFileServer(new FileServerOptions
 });
 
 //TODO Establish connection to MySQL Database & Make sure all the tables are initialized
-var dbCon = DBConnection.Instance();
-dbCon.Server = "localhost";
-dbCon.DatabaseName = "";
-dbCon.UserName = "root";
-dbCon.Password = "";
+DBConnection dbCon = DBConnection.Instance();
+dbCon.Reset();
 try
 {
     if (dbCon.IsConnect())

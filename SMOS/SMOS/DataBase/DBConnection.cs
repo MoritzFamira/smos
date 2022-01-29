@@ -6,10 +6,6 @@ public class DBConnection
 {
     private DBConnection()
     {
-        Server = "localhost";
-        DatabaseName = "";
-        UserName = "root";
-        Password = "";
     }
 
     public string Server { get; set; }
@@ -40,7 +36,15 @@ public class DBConnection
     
         return true;
     }
-    
+
+    public void Reset()
+    {
+        Connection = null;
+        Server = "localhost";
+        DatabaseName = "";
+        UserName = "root";
+        Password = "";
+    }
     public void Close()
     {
         Connection.Close();
