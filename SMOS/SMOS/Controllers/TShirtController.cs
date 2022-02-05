@@ -9,7 +9,7 @@ namespace SMOS.Controllers;
 [Route("GetTShirts")]
 public class TShirtController
 {
-    [HttpGet(Name = "GetProducts")]
+    [HttpGet(Name = "GetTShirts")]
     public IEnumerable<Product> Get()
     {
         TShirt[] tShirts = new TShirt[]{};

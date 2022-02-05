@@ -19,7 +19,7 @@ public class UsersController
             if (dbCon.IsConnect())
             {
                 string getUsers = @"use mos;
-select u_id, u_name, u_isadmin, u_dateofcreation, u_password 
+select u_id, u_name, u_isadmin, u_dateofcreation 
 from u_users;";
                 MySqlCommand cmd = new MySqlCommand(getUsers, dbCon.Connection);
                 Console.WriteLine("Getting Users");
@@ -27,7 +27,7 @@ from u_users;";
                 
                 while (reader.Read())
                 {
-                    users.Append(new User(reader.GetInt32(0),reader.GetString(1),reader.GetBoolean(2),reader.GetDateTime(3),reader.GetString(4)));
+                    users.Append(new User(reader.GetInt32(0),reader.GetString(1),reader.GetBoolean(2),reader.GetDateTime(3)));
                 }
                 dbCon.Close();
             }
