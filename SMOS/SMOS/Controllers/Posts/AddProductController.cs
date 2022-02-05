@@ -2,7 +2,7 @@
 using MySql.Data.MySqlClient;
 using SMOS.DataBase;
 
-namespace SMOS.Controllers;
+namespace SMOS.Controllers.Posts;
 
 [ApiController]
 [Route("AddProduct")]

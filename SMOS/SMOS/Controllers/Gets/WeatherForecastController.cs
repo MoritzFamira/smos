@@ -4,7 +4,7 @@ using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace SMOS.Controllers
+namespace SMOS.Controllers.Gets
 {
     [ApiController]
     [Route("[controller]")]

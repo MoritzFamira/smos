@@ -4,7 +4,7 @@ using MySql.Data.MySqlClient;
 using SMOS.DataBase;
 using SMOS.Model;
 
-namespace SMOS.Controllers;
+namespace SMOS.Controllers.Gets;
 
 [ApiController]
 [Route("GetProducts")]
