@@ -12,7 +12,7 @@ public class TShirtController
     [HttpGet(Name = "GetTShirts")]
     public IEnumerable<Product> Get()
     {
-        TShirt[] tShirts = new TShirt[]{};
+        List<TShirt> tShirts = new List<TShirt>();
         var dbCon = DBConnection.Instance();
         //this is needed to reset the connection
         dbCon.Reset();
@@ -28,7 +28,7 @@ public class TShirtController
                 
                 while (reader.Read())
                 {
-                    tShirts.Append(new TShirt(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2),
+                    tShirts.Add(new TShirt(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2),
                         reader.GetString(3),reader.GetString(4)));
                 }
                 dbCon.Close();

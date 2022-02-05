@@ -11,7 +11,7 @@ public class UsersController
     [HttpGet(Name = "GetUsers")]
     public IEnumerable<User> Get()
     {
-        User[] users = new User[] { };
+        List<User> users = new List<User>();
         var dbCon = DBConnection.Instance();
         dbCon.Reset();
         try
@@ -27,7 +27,8 @@ from u_users;";
                 
                 while (reader.Read())
                 {
-                    users.Append(new User(reader.GetInt32(0),reader.GetString(1),reader.GetBoolean(2),reader.GetDateTime(3)));
+                    users.Add(new User(reader.GetInt32(0),reader.GetString(1),
+                        reader.GetBoolean(2),reader.GetDateTime(3)));
                 }
                 dbCon.Close();
             }

@@ -46,8 +46,7 @@ set foreign_key_checks = 0;
 create table if not exists p_products(
     p_id int primary key not null auto_increment,
     p_name varchar(255),
-    p_price int,
-    p_mt_type int
+    p_price int
 );
 create table if not exists u_users(
     u_id int primary key not null auto_increment,
