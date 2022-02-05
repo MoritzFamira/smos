@@ -9,9 +9,10 @@ namespace SMOS.Controllers;
 public class AddProductController : ControllerBase
 {
     [HttpPost(Name = "AddProduct")]
-    public void Post([FromBody] string name)
+    public void Post([FromForm] string name,[FromForm] int price)
     {
-        Console.WriteLine("name: "+name);
+        //Console.WriteLine("name: "+name);
+        //Console.WriteLine("price: "+price);
         var dbCon = DBConnection.Instance();
         //this is needed to reset the connection
         dbCon.Reset();
@@ -24,11 +25,9 @@ public class AddProductController : ControllerBase
 insert into p_products (p_id, p_name, p_price)
 VALUE (null,@name,@price);";
                 var cmd = new MySqlCommand(addProduct,dbCon.Connection);
-                //TODO
-                var name1 = new MySqlParameter("name", "TEST");
-                var price = new MySqlParameter("price", 1);
-
-                cmd.Parameters.AddWithValue("@name", name1);
+                
+                
+                cmd.Parameters.AddWithValue("@name", name);
                 cmd.Parameters.AddWithValue("@price", price);
                 Console.WriteLine("Adding Product");
                 cmd.ExecuteNonQuery();
