@@ -50,10 +50,10 @@ create table if not exists p_products(
 );
 create table if not exists u_users(
     u_id int primary key not null auto_increment,
-    u_name varchar(255) not null,
+    u_name varchar(255) not null unique,
     u_isadmin bool,
     u_dateofcreation datetime,
-    u_pw_password int
+    u_password varchar(255)
 );
 create table if not exists s_submissions(
     s_id int primary key not null auto_increment,
@@ -67,12 +67,6 @@ create table if not exists t_tshirts(
   t_p_product int primary key not null auto_increment,
   t_size varchar(16),
   t_color varchar(16)
-);
-create table if not exists pw_passwords(
-    pw_id int primary key not null auto_increment,
-    pw_u_user int,
-    pw_password varchar(255),
-    foreign key (pw_u_user) references u_users (u_id)
 );
 set foreign_key_checks = 1;";
         var cmd = new MySqlCommand(schemaAndDatabaseTest, dbCon.Connection);

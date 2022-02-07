@@ -6,11 +6,11 @@ using SMOS.DataBase;
 namespace SMOS.Controllers.Posts;
 
 [ApiController]
-[Route("api/AddProduct")]
-public class AddProductController : ControllerBase
+[Route("api/AddUser")]
+public class AddUser
 {
-    [HttpPost(Name = "AddProduct")]
-    public HttpResponseMessage Post([FromForm] string name,[FromForm] int price)
+    [HttpPost(Name = "AddUser")]
+    public HttpResponseMessage Post([FromForm] string name,[FromForm] string password)
     {
         //Console.WriteLine("name: "+name);
         //Console.WriteLine("price: "+price);
@@ -21,26 +21,29 @@ public class AddProductController : ControllerBase
         {
             if (dbCon.IsConnect())
             {
+                //TODO salting passwords
                 string addProduct = @"use mos; 
-insert into p_products (p_id, p_name, p_price)
-VALUE (null,@name,@price);";
+insert into u_users (u_id, u_name, u_isadmin, u_dateofcreation, u_password)
+    value (null,@name,false,current_date,sha2(@password,256));";
                 var cmd = new MySqlCommand(addProduct,dbCon.Connection);
                 
                 
                 cmd.Parameters.AddWithValue("@name", name);
-                cmd.Parameters.AddWithValue("@price", price);
-                Console.WriteLine("Adding Product");
+                cmd.Parameters.AddWithValue("@password", password);
+                Console.WriteLine("Adding User");
                 cmd.ExecuteNonQuery();
                 dbCon.Close();
+                return new HttpResponseMessage(HttpStatusCode.OK);
             }
         }
         catch (Exception e)
         {
-            Console.WriteLine($"Cannot connect to Database!\n{e}");
+            Console.WriteLine("Username already Exists.");
             return new HttpResponseMessage(HttpStatusCode.Conflict);
+            Console.WriteLine($"Cannot connect to Database!\n{e}");
         }
 
-        return new HttpResponseMessage(HttpStatusCode.OK);
+        return new HttpResponseMessage(HttpStatusCode.BadRequest);
+
     }
-    
 }

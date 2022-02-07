@@ -1,10 +1,45 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Net;
+using Microsoft.AspNetCore.Mvc;
+using MySql.Data.MySqlClient;
+using SMOS.DataBase;
+using SMOS.Model;
 
 namespace SMOS.Controllers.Posts;
-
-[ApiController]
+//TODO
+/*[ApiController]
 [Route("api/Login")]
 public class LoginController : ControllerBase
 {
-    
-}
+    [HttpPost(Name = "Login")]
+    public HttpResponseMessage Login()
+    {
+        var dbCon = DBConnection.Instance();
+        //this is needed to reset the connection
+        dbCon.Reset();
+        try
+        {
+            if (dbCon.IsConnect())
+            {
+                string getProducts = @"use mos; select p_id,p_name,p_price,t_size,t_color
+                    from p_products inner join t_tshirts on p_id = t_p_product;";
+                var cmd = new MySqlCommand(getProducts, dbCon.Connection);
+                Console.WriteLine("Getting TShirts");
+                var reader = cmd.ExecuteReader();
+                
+                while (reader.Read())
+                {
+                    tShirts.Add(new TShirt(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2),
+                        reader.GetString(3),reader.GetString(4)));
+                }
+                dbCon.Close();
+            }
+
+            
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine($"Cannot connect to Database!\n{e}");
+        }
+        return new HttpResponseMessage(HttpStatusCode.Unauthorized);
+    }
+}*/
