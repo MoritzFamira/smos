@@ -5,13 +5,13 @@ using SMOS.DataBase;
 using SMOS.Model;
 
 namespace SMOS.Controllers.Posts;
-//TODO
-/*[ApiController]
+
+[ApiController]
 [Route("api/Login")]
 public class LoginController : ControllerBase
 {
     [HttpPost(Name = "Login")]
-    public HttpResponseMessage Login()
+    public HttpResponseMessage Login([FromForm] string name,[FromForm] string password)
     {
         var dbCon = DBConnection.Instance();
         //this is needed to reset the connection
@@ -20,26 +20,20 @@ public class LoginController : ControllerBase
         {
             if (dbCon.IsConnect())
             {
-                string getProducts = @"use mos; select p_id,p_name,p_price,t_size,t_color
-                    from p_products inner join t_tshirts on p_id = t_p_product;";
-                var cmd = new MySqlCommand(getProducts, dbCon.Connection);
-                Console.WriteLine("Getting TShirts");
-                var reader = cmd.ExecuteReader();
-                
-                while (reader.Read())
-                {
-                    tShirts.Add(new TShirt(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2),
-                        reader.GetString(3),reader.GetString(4)));
-                }
+                //TODO check whether there is a user with the name and password provided
+                string login = @"use mos;";
+                var cmd = new MySqlCommand(login, dbCon.Connection);
+                Console.WriteLine("Logging in");
+                cmd.ExecuteNonQuery();
                 dbCon.Close();
+                return new HttpResponseMessage(HttpStatusCode.OK);
             }
-
-            
         }
+        //TODO make sure the right status code is returned if login fails
         catch (Exception e)
         {
             Console.WriteLine($"Cannot connect to Database!\n{e}");
         }
         return new HttpResponseMessage(HttpStatusCode.Unauthorized);
     }
-}*/
+}
