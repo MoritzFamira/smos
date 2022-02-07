@@ -5,7 +5,7 @@ using SMOS.Model;
 
 namespace SMOS.Controllers.Gets;
 [ApiController]
-[Route("GetUsers")]
+[Route("api/GetUsers")]
 public class UsersController
 {
     [HttpGet(Name = "GetUsers")]

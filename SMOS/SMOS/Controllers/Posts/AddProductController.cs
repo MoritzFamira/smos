@@ -5,11 +5,11 @@ using SMOS.DataBase;
 namespace SMOS.Controllers.Posts;
 
 [ApiController]
-[Route("AddProduct")]
+[Route("api/AddProduct")]
 public class AddProductController : ControllerBase
 {
     [HttpPost(Name = "AddProduct")]
-    public void Post([FromForm] string name,[FromForm] int price)
+    public HttpResponse Post([FromForm] string name,[FromForm] int price)
     {
         //Console.WriteLine("name: "+name);
         //Console.WriteLine("price: "+price);
@@ -20,7 +20,6 @@ public class AddProductController : ControllerBase
         {
             if (dbCon.IsConnect())
             {
-                
                 string addProduct = @"use mos; 
 insert into p_products (p_id, p_name, p_price)
 VALUE (null,@name,@price);";
@@ -38,6 +37,8 @@ VALUE (null,@name,@price);";
         {
             Console.WriteLine($"Cannot connect to Database!\n{e}");
         }
+
+        return HttpContext.Response;
     }
     
 }

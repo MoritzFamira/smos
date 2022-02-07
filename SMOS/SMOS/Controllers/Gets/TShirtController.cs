@@ -6,7 +6,7 @@ using SMOS.Model;
 namespace SMOS.Controllers.Gets;
 
 [ApiController]
-[Route("GetTShirts")]
+[Route("api/GetTShirts")]
 public class TShirtController
 {
     [HttpGet(Name = "GetTShirts")]
