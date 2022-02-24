@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Net;
+using Microsoft.AspNetCore.Mvc;
 
 namespace SMOS.Controllers.Upload;
 
@@ -7,22 +8,28 @@ namespace SMOS.Controllers.Upload;
 public class UploadController : ControllerBase
 {
     [HttpPost(Name = "Upload")]
-    public IActionResult UploadFile(IFormFile file)
+    public HttpResponseMessage UploadFile(IFormFile file)
     {
-        //TODO way of finding path to upload folder
-        /*var ctx = HttpContext.;
-        var root = ctx.Server.MapPath();*/
-        //var provider = new MultipartFormDataContent("~/Pages");
         try
         {
             Console.WriteLine("Datei: "+file.FileName);
+            //TODO check if file is right file type etc.
+            //Console.WriteLine(Directory.GetCurrentDirectory());
+            string uploads = Path.GetFullPath(Directory.GetCurrentDirectory())+"/Pages/Uploads";
+            if (file.Length > 0) {
+                string filePath = Path.Combine(uploads, file.FileName);
+                Stream fileStream = new FileStream(filePath, FileMode.Create);
+                file.CopyTo(fileStream);
+                //await file.CopyToAsync(fileStream);
+                
+            }
+            return new HttpResponseMessage(HttpStatusCode.OK);
         }
         catch (Exception e)
         {
             Console.WriteLine(e);
-            throw;
+            return new HttpResponseMessage(HttpStatusCode.BadRequest);
         }
 
-        return Ok();
     }
 }
