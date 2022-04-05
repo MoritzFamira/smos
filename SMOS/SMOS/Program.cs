@@ -66,7 +66,17 @@ create table if not exists s_submissions(
 create table if not exists t_tshirts(
   t_p_product int primary key not null auto_increment,
   t_size varchar(16),
-  t_color varchar(16)
+  t_color varchar(16),
+  t_material varchar(16),
+  t_countryofmanufacturer varchar(16)
+);
+create table if not exists t_hoodies(
+  t_p_product int primary key not null auto_increment,
+  t_size varchar(16),
+  t_color varchar(16),
+  t_hood bool,
+  t_material varchar(16),
+  t_countryofmanufacturer varchar(16)
 );
 set foreign_key_checks = 1;";
         var cmd = new MySqlCommand(schemaAndDatabaseTest, dbCon.Connection);

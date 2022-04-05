@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "/home/moritz/Projects/smos/SMOS/SMOS/SMOS.csproj": {}
+    "C:\\Users\\Startklar\\OneDrive - HTL Spengergasse\\Schule\\Jahr 3\\15. PRE\\MOS\\SMOS\\SMOS\\SMOS.csproj": {}
   },
   "projects": {
-    "/home/moritz/Projects/smos/SMOS/SMOS/SMOS.csproj": {
+    "C:\\Users\\Startklar\\OneDrive - HTL Spengergasse\\Schule\\Jahr 3\\15. PRE\\MOS\\SMOS\\SMOS\\SMOS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/moritz/Projects/smos/SMOS/SMOS/SMOS.csproj",
+        "projectUniqueName": "C:\\Users\\Startklar\\OneDrive - HTL Spengergasse\\Schule\\Jahr 3\\15. PRE\\MOS\\SMOS\\SMOS\\SMOS.csproj",
         "projectName": "SMOS",
-        "projectPath": "/home/moritz/Projects/smos/SMOS/SMOS/SMOS.csproj",
-        "packagesPath": "/home/moritz/.nuget/packages/",
-        "outputPath": "/home/moritz/Projects/smos/SMOS/SMOS/obj/",
+        "projectPath": "C:\\Users\\Startklar\\OneDrive - HTL Spengergasse\\Schule\\Jahr 3\\15. PRE\\MOS\\SMOS\\SMOS\\SMOS.csproj",
+        "packagesPath": "C:\\Users\\Startklar\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Startklar\\OneDrive - HTL Spengergasse\\Schule\\Jahr 3\\15. PRE\\MOS\\SMOS\\SMOS\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/moritz/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Startklar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -69,7 +71,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/home/moritz/.dotnet/sdk/6.0.102/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

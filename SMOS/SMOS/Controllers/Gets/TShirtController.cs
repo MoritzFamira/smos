@@ -20,7 +20,7 @@ public class TShirtController
         {
             if (dbCon.IsConnect())
             {
-                string getProducts = @"use mos; select p_id,p_name,p_price,t_size,t_color
+                string getProducts = @"use mos; select p_id,p_name,p_price,t_size,t_color,t_countryofmanufacturer,t_material
                     from p_products inner join t_tshirts on p_id = t_p_product;";
                 var cmd = new MySqlCommand(getProducts, dbCon.Connection);
                 Console.WriteLine("Getting TShirts");
@@ -29,7 +29,8 @@ public class TShirtController
                 while (reader.Read())
                 {
                     tShirts.Add(new TShirt(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2),
-                        reader.GetString(3),reader.GetString(4)));
+                        reader.GetString(3),reader.GetString(4),reader.GetString(5),
+                        reader.GetString(6)));
                 }
                 dbCon.Close();
             }
