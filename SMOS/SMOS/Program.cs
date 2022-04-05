@@ -33,11 +33,8 @@ app.UseFileServer(new FileServerOptions
 });
 
 //TODO Establish connection to MySQL Database & Make sure all the tables are initialized
-var dbCon = DBConnection.Instance();
-dbCon.Server = "localhost";
-dbCon.DatabaseName = "";
-dbCon.UserName = "root";
-dbCon.Password = "";
+DBConnection dbCon = DBConnection.Instance();
+dbCon.Reset();
 try
 {
     if (dbCon.IsConnect())
@@ -49,14 +46,14 @@ set foreign_key_checks = 0;
 create table if not exists p_products(
     p_id int primary key not null auto_increment,
     p_name varchar(255),
-    p_price int,
-    p_mt_type int
+    p_price int
 );
 create table if not exists u_users(
     u_id int primary key not null auto_increment,
-    u_name varchar(255) not null,
+    u_name varchar(255) not null unique,
     u_isadmin bool,
-    u_dateofcreation datetime
+    u_dateofcreation datetime,
+    u_password varchar(255)
 );
 create table if not exists s_submissions(
     s_id int primary key not null auto_increment,

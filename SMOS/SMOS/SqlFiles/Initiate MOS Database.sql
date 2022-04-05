@@ -11,7 +11,8 @@ create table if not exists u_users(
     u_id int primary key not null auto_increment,
     u_name varchar(255) not null,
     u_isadmin bool,
-    u_dateofcreation datetime
+    u_dateofcreation datetime,
+    u_password varchar(255)
 );
 create table if not exists s_submissions(
     s_id int primary key not null auto_increment,

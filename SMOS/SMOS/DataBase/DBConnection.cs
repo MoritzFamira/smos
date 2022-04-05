@@ -8,10 +8,10 @@ public class DBConnection
     {
     }
 
-    public string Server { get; set; }
-    public string DatabaseName { get; set; }
-    public string UserName { get; set; }
-    public string Password { get; set; }
+    public string? Server { get; set; }
+    public string? DatabaseName { get; set; }
+    public string? UserName { get; set; }
+    public string? Password { get; set; }
 
     public MySqlConnection? Connection { get; set;}
 
@@ -36,7 +36,15 @@ public class DBConnection
     
         return true;
     }
-    
+
+    public void Reset()
+    {
+        Connection = null;
+        Server = "localhost";
+        DatabaseName = "";
+        UserName = "root";
+        Password = "";
+    }
     public void Close()
     {
         Connection.Close();

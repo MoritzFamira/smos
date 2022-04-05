@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "mWJdWbrve7mYJN66ekz6rFr1k4AYTZZUnE+6bDYITXhhGTd+kjce8xUPxeWqw9jcRyrZgiJFZ0E0jMccTPjvPA==",
+  "dgSpecHash": "OUhQKihlW5/KEA+cqbrY4gx3mxiYUblIwgNKTbLase81dkavhFyzZ6MegM2eLCLBvydQHJra4JvwKxth8NCO9A==",
   "success": true,
   "projectFilePath": "/home/moritz/Projects/smos/SMOS/SMOS/SMOS.csproj",
   "expectedPackageFiles": [
@@ -28,8 +28,7 @@
     "/home/moritz/.nuget/packages/system.security.permissions/4.7.0/system.security.permissions.4.7.0.nupkg.sha512",
     "/home/moritz/.nuget/packages/system.security.principal.windows/4.7.0/system.security.principal.windows.4.7.0.nupkg.sha512",
     "/home/moritz/.nuget/packages/system.text.encoding.codepages/4.4.0/system.text.encoding.codepages.4.4.0.nupkg.sha512",
-    "/home/moritz/.nuget/packages/system.windows.extensions/4.7.0/system.windows.extensions.4.7.0.nupkg.sha512",
-    "/home/moritz/.nuget/packages/microsoft.aspnetcore.app.ref/6.0.0/microsoft.aspnetcore.app.ref.6.0.0.nupkg.sha512"
+    "/home/moritz/.nuget/packages/system.windows.extensions/4.7.0/system.windows.extensions.4.7.0.nupkg.sha512"
   ],
   "logs": []
 }
