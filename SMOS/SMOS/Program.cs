@@ -70,13 +70,30 @@ create table if not exists t_tshirts(
   t_material varchar(16),
   t_countryofmanufacturer varchar(16)
 );
-create table if not exists t_hoodies(
-  t_p_product int primary key not null auto_increment,
-  t_size varchar(16),
-  t_color varchar(16),
-  t_hood bool,
-  t_material varchar(16),
-  t_countryofmanufacturer varchar(16)
+create table if not exists h_hoodies(
+  h_p_product int primary key not null auto_increment,
+  h_size varchar(16),
+  h_color varchar(16),
+  h_countryofmanufacturer varchar(16),
+  h_material varchar(16),
+  h_hood bool
+);
+create table if not exists c_caps(
+  c_p_product int primary key not null auto_increment,
+  c_color varchar(16),
+  c_material varchar(16),
+  c_countryofmanufacturer varchar(16)
+);
+create table if not exists c_cups(
+  c_p_product int primary key not null auto_increment,
+  c_color varchar(16),
+  c_countryofmanufacturer varchar(16)
+);
+create table if not exists m_mousepads(
+  m_p_product int primary key not null auto_increment,
+  m_height int,
+  m_length int,
+  m_countryofmanufacturer varchar(16)
 );
 set foreign_key_checks = 1;";
         var cmd = new MySqlCommand(schemaAndDatabaseTest, dbCon.Connection);
@@ -87,6 +104,7 @@ set foreign_key_checks = 1;";
 }
 catch (Exception e)
 {
+    Console.WriteLine(e);
     Console.WriteLine("Cannot connect to Database!");
 }
 

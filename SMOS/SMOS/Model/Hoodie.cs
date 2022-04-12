@@ -2,7 +2,7 @@
 
 public class Hoodie : Product
 {
-    public Hoodie(int id, string name, int price, string material, string countryOfManufacturer, string size,string color, bool hood) : base(id, name, price)
+    public Hoodie(int id, string name, int price, string size,string color,  string countryOfManufacturer, string material, bool hood) : base(id, name, price)
     {
         Size = size;
         Color = color;
