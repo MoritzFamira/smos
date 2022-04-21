@@ -12,7 +12,7 @@ public class AddTshirtController : ControllerBase
 {
     [HttpPost(Name = "AddTShirt")]
     public HttpResponseMessage Post([FromForm] Product product,[FromForm] string size,[FromForm] string color,
-        [FromForm] string material,[FromForm] string countryofmanufacturer)
+        [FromForm] string material,[FromForm] string countryofmanufacturer, string name, int price)
     {
         //Console.WriteLine("product: "+product);
         //Console.WriteLine("size: "+size);
@@ -28,15 +28,19 @@ public class AddTshirtController : ControllerBase
             {
                 string addProduct = @"use mos; 
 insert into t_tshirts (t_p_product, t_size, t_color, t_material, t_countryofmanufacturer)
-VALUE (@product,@size,@color,@material,@countryofmanufacturer);";
+VALUE (@product,@size,@color,@material,@countryofmanufacturer);
+insert into p_products (p_id,p_name,p_price)
+value (@product,@name,@price)";
                 var cmd = new MySqlCommand(addProduct,dbCon.Connection);
                 
                 
-                cmd.Parameters.AddWithValue("@product", product);
+                cmd.Parameters.AddWithValue("@product", product.Id);
                 cmd.Parameters.AddWithValue("@size", size);
                 cmd.Parameters.AddWithValue("@color", color);
                 cmd.Parameters.AddWithValue("@material", material);
                 cmd.Parameters.AddWithValue("@countryofmanufacturer", countryofmanufacturer);
+                cmd.Parameters.AddWithValue("@name", name);
+                cmd.Parameters.AddWithValue("@price", price);
                 Console.WriteLine("Adding TShirt");
                 cmd.ExecuteNonQuery();
                 dbCon.Close();
