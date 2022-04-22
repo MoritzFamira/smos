@@ -20,7 +20,7 @@ public class HoodieController : ControllerBase
         {
             if (dbCon.IsConnect())
             {
-                string getProducts = @"use mos; select h_id,t_name,h_price,h_size,h_color,h_countryofmanufacturer,h_material,h_hood
+                string getProducts = @"use mos; select h_id,h_name,h_price,h_size,h_color,h_countryofmanufacturer,h_material,h_hood
                  from h_hoodies";
                 var cmd = new MySqlCommand(getProducts, dbCon.Connection);
                 Console.WriteLine("Getting Hoodies");
