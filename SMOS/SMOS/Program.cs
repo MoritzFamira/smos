@@ -64,7 +64,9 @@ create table if not exists s_submissions(
     foreign key (s_u_artist) references u_users (u_id)
 );
 create table if not exists t_tshirts(
-  t_p_product int primary key not null auto_increment,
+  t_id int primary key not null auto_increment,
+  t_name varchar(45),
+  t_price int,
   t_size varchar(16),
   t_color varchar(16),
   t_material varchar(16),

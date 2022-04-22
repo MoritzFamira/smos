@@ -7,10 +7,10 @@ namespace SMOS.Controllers.Gets;
 
 [ApiController]
 [Route("api/GetTShirts")]
-public class TShirtController
+public class TShirtController : ControllerBase
 {
     [HttpGet(Name = "GetTShirts")]
-    public IEnumerable<Product> Get()
+    public IEnumerable<TShirt> Get()
     {
         List<TShirt> tShirts = new List<TShirt>();
         var dbCon = DBConnection.Instance();
@@ -20,14 +20,14 @@ public class TShirtController
         {
             if (dbCon.IsConnect())
             {
-                string getProducts = @"use mos; select p_id,p_name,p_price,t_size,t_color,t_countryofmanufacturer,t_material
-                    from p_products inner join t_tshirts on p_id = t_p_product;";
+                string getProducts = @"use mos; select t_id,t_name,t_price,t_size,t_color,t_countryofmanufacturer,t_material
+                 from t_tshirts";
                 var cmd = new MySqlCommand(getProducts, dbCon.Connection);
                 Console.WriteLine("Getting TShirts");
                 var reader = cmd.ExecuteReader();
                 
                 while (reader.Read())
-                {
+                { 
                     tShirts.Add(new TShirt(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2),
                         reader.GetString(3),reader.GetString(4),reader.GetString(5),
                         reader.GetString(6)));

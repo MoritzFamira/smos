@@ -11,8 +11,8 @@ namespace SMOS.Controllers.Posts;
 public class AddTshirtController : ControllerBase
 {
     [HttpPost(Name = "AddTShirt")]
-    public HttpResponseMessage Post([FromForm] Product product,[FromForm] string size,[FromForm] string color,
-        [FromForm] string material,[FromForm] string countryofmanufacturer, string name, int price)
+    public HttpResponseMessage Post([FromForm] string size,[FromForm] string color,
+        [FromForm] string material,[FromForm] string countryofmanufacturer,[FromForm] string name,[FromForm] int price)
     {
         //Console.WriteLine("product: "+product);
         //Console.WriteLine("size: "+size);
@@ -27,14 +27,11 @@ public class AddTshirtController : ControllerBase
             if (dbCon.IsConnect())
             {
                 string addProduct = @"use mos; 
-insert into t_tshirts (t_p_product, t_size, t_color, t_material, t_countryofmanufacturer)
-VALUE (@product,@size,@color,@material,@countryofmanufacturer);
-insert into p_products (p_id,p_name,p_price)
-value (@product,@name,@price)";
+insert into t_tshirts (t_id,t_name,t_price, t_size, t_color, t_material, t_countryofmanufacturer)
+VALUE (null,@name,@price,@size,@color,@material,@countryofmanufacturer);";
                 var cmd = new MySqlCommand(addProduct,dbCon.Connection);
                 
                 
-                cmd.Parameters.AddWithValue("@product", product.Id);
                 cmd.Parameters.AddWithValue("@size", size);
                 cmd.Parameters.AddWithValue("@color", color);
                 cmd.Parameters.AddWithValue("@material", material);
