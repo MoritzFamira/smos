@@ -22,7 +22,7 @@ public class AddCapController : ControllerBase
             if (dbCon.IsConnect())
             {
                 string addProduct = @"use mos; 
-insert into c_cups (c_id,c_name,c_price,c_color, c_material, c_countryofmanufacturer)
+insert into c_caps (c_id,c_name,c_price,c_color, c_material, c_countryofmanufacturer)
 VALUE (null,@name,@price,@color,@material,@countryofmanufacturer);";
                 var cmd = new MySqlCommand(addProduct,dbCon.Connection);
                 
