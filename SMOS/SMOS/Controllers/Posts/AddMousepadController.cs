@@ -11,8 +11,8 @@ namespace SMOS.Controllers.Posts;
 public class AddMousepadController : ControllerBase
 {
     [HttpPost(Name = "AddMousepad")]
-    public HttpResponseMessage Post([FromForm] int height,[FromForm] string countryofmanufacturer,[FromForm] int length,
-        [FromForm] string name,[FromForm] int price)
+    public HttpResponseMessage Post([FromForm] string name,[FromForm] int price,
+    [FromForm] int height,[FromForm] int length,[FromForm] string countryofmanufacturer)
     {
         var dbCon = DBConnection.Instance();
         //this is needed to reset the connection
@@ -22,8 +22,8 @@ public class AddMousepadController : ControllerBase
             if (dbCon.IsConnect())
             {
                 string addProduct = @"use mos; 
-insert into c_cups (m_id,m_name,m_price,,_height,m_length, c_countryofmanufacturer)
-VALUE (null,@name,@height,@length,@countryofmanufacturer);";
+insert into m_mousepads (m_id,m_name,m_price,m_height,m_length, m_countryofmanufacturer)
+VALUE (null,@name,@price, @height,@length,@countryofmanufacturer);";
                 var cmd = new MySqlCommand(addProduct,dbCon.Connection);
                 
                 
