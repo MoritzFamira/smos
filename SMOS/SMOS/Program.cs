@@ -73,7 +73,9 @@ create table if not exists t_tshirts(
   t_countryofmanufacturer varchar(16)
 );
 create table if not exists h_hoodies(
-  h_p_product int primary key not null auto_increment,
+  h_id int primary key not null auto_increment,
+  h_name varchar(45),
+  h_price int,
   h_size varchar(16),
   h_color varchar(16),
   h_countryofmanufacturer varchar(16),
@@ -81,18 +83,24 @@ create table if not exists h_hoodies(
   h_hood bool
 );
 create table if not exists c_caps(
-  c_p_product int primary key not null auto_increment,
+  c_id int primary key not null auto_increment,
+  c_name varchar(45),
+  c_price int,
   c_color varchar(16),
   c_material varchar(16),
   c_countryofmanufacturer varchar(16)
 );
 create table if not exists c_cups(
-  c_p_product int primary key not null auto_increment,
+  c_id int primary key not null auto_increment,
+  c_name varchar(45),
+  c_price int,
   c_color varchar(16),
   c_countryofmanufacturer varchar(16)
 );
 create table if not exists m_mousepads(
-  m_p_product int primary key not null auto_increment,
+  m_id int primary key not null auto_increment,
+  m_name varchar(45),
+  m_price int,
   m_height int,
   m_length int,
   m_countryofmanufacturer varchar(16)

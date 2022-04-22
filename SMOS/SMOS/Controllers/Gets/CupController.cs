@@ -6,11 +6,11 @@ using SMOS.Model;
 namespace SMOS.Controllers.Gets;
 
 [ApiController]
-[Route("api/GetCup")]
-public class CupController
+[Route("api/GetCups")]
+public class CupController : ControllerBase
 {
     [HttpGet(Name = "GetCup")]
-    public IEnumerable<Product> Get()
+    public IEnumerable<Cup> Get()
     {
         List<Cup> cups = new List<Cup>();
         var dbCon = DBConnection.Instance();
@@ -20,8 +20,8 @@ public class CupController
         {
             if (dbCon.IsConnect())
             {
-                string getProducts = @"use mos; select p_id,p_name,p_price, c_color, c_countryofmanufacturer
-                    from p_products inner join c_cups on p_id = c_p_product;";
+                string getProducts = @"use mos; select c_id,c_name,c_price,c_size,c_color,c_countryofmanufacturer
+                 from c_cups";
                 var cmd = new MySqlCommand(getProducts, dbCon.Connection);
                 Console.WriteLine("Getting Cups");
                 var reader = cmd.ExecuteReader();

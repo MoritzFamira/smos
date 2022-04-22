@@ -7,10 +7,10 @@ namespace SMOS.Controllers.Gets;
 
 [ApiController]
 [Route("api/GetMousePad")]
-public class MousePadController
+public class MousePadController : ControllerBase
 {
     [HttpGet(Name = "GetMousePad")]
-    public IEnumerable<Product> Get()
+    public IEnumerable<MousePad> Get()
     {
         List<MousePad> mousePads = new List<MousePad>();
         var dbCon = DBConnection.Instance();
@@ -20,8 +20,8 @@ public class MousePadController
         {
             if (dbCon.IsConnect())
             {
-                string getProducts = @"use mos; select p_id,p_name,p_price,m_height,m_length,m_countryofmanufacturer
-                    from p_products inner join m_mousepads on p_id = m_p_product;";
+                string getProducts = @"use mos; select m_id,m_name,m_price,m_height,m_length,m_countryofmanufacturer
+                    from m_mousepads";
                 var cmd = new MySqlCommand(getProducts, dbCon.Connection);
                 Console.WriteLine("Getting MousePads");
                 var reader = cmd.ExecuteReader();

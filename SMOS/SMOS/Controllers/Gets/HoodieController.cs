@@ -7,10 +7,10 @@ namespace SMOS.Controllers.Gets;
 
 [ApiController]
 [Route("api/GetHoodie")]
-public class HoodieController
+public class HoodieController : ControllerBase
 {
     [HttpGet(Name = "GetHoodie")]
-    public IEnumerable<Product> Get()
+    public IEnumerable<Hoodie> Get()
     {
         List<Hoodie> hoodies = new List<Hoodie>();
         var dbCon = DBConnection.Instance();
@@ -20,9 +20,8 @@ public class HoodieController
         {
             if (dbCon.IsConnect())
             {
-                string getProducts = @"use mos; select p_id,p_name,p_price,h_size,h_color,h_countryofmanufacturer,h_material,
-                    h_hood
-                    from p_products inner join h_hoodies on p_id = h_p_product;";
+                string getProducts = @"use mos; select h_id,t_name,h_price,h_size,h_color,h_countryofmanufacturer,h_material,h_hood
+                 from h_hoodies";
                 var cmd = new MySqlCommand(getProducts, dbCon.Connection);
                 Console.WriteLine("Getting Hoodies");
                 var reader = cmd.ExecuteReader();

@@ -7,10 +7,10 @@ namespace SMOS.Controllers.Gets;
 
 [ApiController]
 [Route("api/GetCap")]
-public class CapController
+public class CapController : ControllerBase
 {
     [HttpGet(Name = "GetCap")]
-    public IEnumerable<Product> Get()
+    public IEnumerable<Cap> Get()
     {
         List<Cap> caps = new List<Cap>();
         var dbCon = DBConnection.Instance();
@@ -20,8 +20,8 @@ public class CapController
         {
             if (dbCon.IsConnect())
             {
-                string getProducts = @"use mos; select p_id,p_name,p_price, c_color, c_material, c_countryofmanufacturer
-                    from p_products inner join c_caps on p_id = c_p_product;";
+                string getProducts = @"use mos; select c_id,c_name,c_price,c_size,c_color,c_countryofmanufacturer,c_material
+                 from c_caps";
                 var cmd = new MySqlCommand(getProducts, dbCon.Connection);
                 Console.WriteLine("Getting Caps");
                 var reader = cmd.ExecuteReader();
