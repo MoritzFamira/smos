@@ -39,10 +39,13 @@ try
 {
     if (dbCon.IsConnect())
     {
-        //TODO Check if the database is there
+        //TODO uploads table
         string schemaAndDatabaseTest = @"create database if not exists mos;
 use mos;
 set foreign_key_checks = 0;
+create table if not exists up_uploads(
+    up_guid string primary key not null
+);
 create table if not exists p_products(
     p_id int primary key not null auto_increment,
     p_name varchar(255),

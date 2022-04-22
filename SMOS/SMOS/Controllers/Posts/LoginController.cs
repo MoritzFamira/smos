@@ -11,6 +11,7 @@ namespace SMOS.Controllers.Posts;
 public class LoginController : ControllerBase
 {
     [HttpPost(Name = "Login")]
+    //this should at least return a user ID
     public HttpResponseMessage Login([FromForm] string name,[FromForm] string password)
     {
         var dbCon = DBConnection.Instance();

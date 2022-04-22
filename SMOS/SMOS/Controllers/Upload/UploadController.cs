@@ -8,7 +8,8 @@ namespace SMOS.Controllers.Upload;
 public class UploadController : ControllerBase
 {
     [HttpPost(Name = "Upload")]
-    public HttpResponseMessage UploadFile(IFormFile file)
+    //int artist is a user ID
+    public HttpResponseMessage UploadFile([FromForm] IFormFile file,[FromForm] int artist)
     {
         try
         {
@@ -17,11 +18,26 @@ public class UploadController : ControllerBase
             //Console.WriteLine(Directory.GetCurrentDirectory());
             string uploads = Path.GetFullPath(Directory.GetCurrentDirectory())+"/Pages/Uploads";
             if (file.Length > 0) {
-                string filePath = Path.Combine(uploads, file.FileName);
+                //TODO handle different filetypes (.jpeg, .jpg, .png, ...)
+                string filetype = "";
+                if (file.FileName.EndsWith(".png"))
+                {
+                    filetype = ".png";
+                }
+
+                if (file.FileName.EndsWith(".jpg"))
+                {
+                    filetype = ".jpg";
+                }
+
+                Guid guid = Guid.NewGuid();
+                Console.WriteLine(guid);
+                
+                string filePath = Path.Combine(uploads,/* this parameter will be the file name */ guid.ToString()+filetype);
                 Stream fileStream = new FileStream(filePath, FileMode.Create);
                 file.CopyTo(fileStream);
                 //await file.CopyToAsync(fileStream);
-                
+                fileStream.Close();
             }
             return new HttpResponseMessage(HttpStatusCode.OK);
         }
