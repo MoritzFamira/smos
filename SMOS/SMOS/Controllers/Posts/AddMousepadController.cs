@@ -11,7 +11,7 @@ namespace SMOS.Controllers.Posts;
 public class AddMousepadController : ControllerBase
 {
     [HttpPost(Name = "AddMousepad")]
-    public HttpResponseMessage Post([FromForm] string height,[FromForm] string countryofmanufacturer,[FromForm] string length,
+    public HttpResponseMessage Post([FromForm] int height,[FromForm] string countryofmanufacturer,[FromForm] int length,
         [FromForm] string name,[FromForm] int price)
     {
         var dbCon = DBConnection.Instance();

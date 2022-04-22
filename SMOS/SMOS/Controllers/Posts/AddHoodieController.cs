@@ -11,8 +11,8 @@ namespace SMOS.Controllers.Posts;
 public class AddHoodieController : ControllerBase
 {
     [HttpPost(Name = "AddHoodie")]
-    public HttpResponseMessage Post([FromForm] string size,[FromForm] string color, [FromForm] bool hood,
-        [FromForm] string material,[FromForm] string countryofmanufacturer,[FromForm] string name,[FromForm] int price)
+    public HttpResponseMessage Post([FromForm] string size,[FromForm] string color,
+        [FromForm] string material,[FromForm] string countryofmanufacturer,[FromForm] string name,[FromForm] int price, [FromForm] bool hood)
     {
         //Console.WriteLine("product: "+product);
         //Console.WriteLine("size: "+size);
@@ -27,7 +27,7 @@ public class AddHoodieController : ControllerBase
             if (dbCon.IsConnect())
             {
                 string addProduct = @"use mos; 
-insert into h_hoodies (h_id,h_name,h_price, h_size, h_color, h_material, h_countryofmanufacturer, h_bool)
+insert into h_hoodies(h_id,h_name,h_price, h_size, h_color, h_material, h_countryofmanufacturer, h_hood)
 VALUE (null,@name,@price,@size,@color,@material,@countryofmanufacturer, @hood);";
                 var cmd = new MySqlCommand(addProduct,dbCon.Connection);
                 
