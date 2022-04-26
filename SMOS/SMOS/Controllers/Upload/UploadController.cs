@@ -1,5 +1,7 @@
 ﻿using System.Net;
 using Microsoft.AspNetCore.Mvc;
+using MySql.Data.MySqlClient;
+using SMOS.DataBase;
 
 namespace SMOS.Controllers.Upload;
 
@@ -20,16 +22,17 @@ public class UploadController : ControllerBase
             if (file.Length > 0) {
                 //TODO handle different filetypes (.jpeg, .jpg, .png, ...)
                 string filetype = "";
-                if (file.FileName.EndsWith(".png"))
+                switch (file.FileName.Split('.')[file.FileName.Split().Length-1])
                 {
-                    filetype = ".png";
+                    case "png":
+                        filetype = ".png";
+                        break;
+                    case "jpg":
+                        filetype = ".jpg";
+                        break;
+                    default:
+                        return new HttpResponseMessage(HttpStatusCode.ExpectationFailed);
                 }
-
-                if (file.FileName.EndsWith(".jpg"))
-                {
-                    filetype = ".jpg";
-                }
-
                 Guid guid = Guid.NewGuid();
                 Console.WriteLine(guid);
                 
@@ -38,6 +41,33 @@ public class UploadController : ControllerBase
                 file.CopyTo(fileStream);
                 //await file.CopyToAsync(fileStream);
                 fileStream.Close();
+                
+                var dbCon = DBConnection.Instance();
+                //this is needed to reset the connection
+                dbCon.Reset();
+                try
+                {
+                    if (dbCon.IsConnect())
+                    {
+                        string addDesign = @"use mos; 
+                        insert into d_designs (d_guid,d_u_artist,d_filetype,d_approved)
+                        VALUE (@guid,@artist,@filetype,@approved);";
+                        var cmd = new MySqlCommand(addDesign, dbCon.Connection);
+                
+                        cmd.Parameters.AddWithValue("@guid", guid.ToString());
+                        cmd.Parameters.AddWithValue("@artist", artist);
+                        cmd.Parameters.AddWithValue("@filetype", filetype);
+                        cmd.Parameters.AddWithValue("@approved", false);
+                        Console.WriteLine("Adding Design");
+                        cmd.ExecuteNonQuery();
+                        dbCon.Close();
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine($"Cannot connect to Database!\n{e}");
+                    return new HttpResponseMessage(HttpStatusCode.Conflict);
+                }
             }
             return new HttpResponseMessage(HttpStatusCode.OK);
         }
@@ -46,6 +76,5 @@ public class UploadController : ControllerBase
             Console.WriteLine(e);
             return new HttpResponseMessage(HttpStatusCode.BadRequest);
         }
-
     }
 }

@@ -39,12 +39,17 @@ try
 {
     if (dbCon.IsConnect())
     {
-        //TODO uploads table
+        //TODO designs table; Julian if you read this let's pls talk about finalizing our database structure
         string schemaAndDatabaseTest = @"create database if not exists mos;
 use mos;
 set foreign_key_checks = 0;
-create table if not exists up_uploads(
-    up_guid string primary key not null
+create table if not exists d_designs(
+    d_guid varchar(255) primary key not null,
+    d_u_artist int,
+    # This could be done with another table and then an inner join; might make sense if that's a requirement for POS
+    d_filetype varchar(10),
+    d_approved bool,
+    foreign key (d_u_artist) references u_users (u_id)
 );
 create table if not exists p_products(
     p_id int primary key not null auto_increment,
@@ -80,7 +85,7 @@ set foreign_key_checks = 1;";
 }
 catch (Exception e)
 {
-    Console.WriteLine("Cannot connect to Database!");
+    Console.WriteLine("Cannot connect to Database!\n"+e.StackTrace);
 }
 
 
