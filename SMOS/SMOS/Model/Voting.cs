@@ -1,8 +1,8 @@
 namespace SMOS.Model;
 
-public class Submission
+public class Voting
 {
-    public Submission(int id, User artist, int votes, DateTime dateOfCreation)
+    public Voting(int id, User artist, int votes, DateTime dateOfCreation)
     {
         Id = id;
         Artist = artist;
