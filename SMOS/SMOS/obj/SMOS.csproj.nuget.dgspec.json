@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Moritz\\RiderProjects\\mos\\SMOS\\SMOS\\SMOS.csproj": {}
+    "C:\\Users\\Startklar\\OneDrive - HTL Spengergasse\\Schule\\Jahr 3\\15. PRE\\MOS\\SMOS\\SMOS\\SMOS.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Moritz\\RiderProjects\\mos\\SMOS\\SMOS\\SMOS.csproj": {
+    "C:\\Users\\Startklar\\OneDrive - HTL Spengergasse\\Schule\\Jahr 3\\15. PRE\\MOS\\SMOS\\SMOS\\SMOS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Moritz\\RiderProjects\\mos\\SMOS\\SMOS\\SMOS.csproj",
+        "projectUniqueName": "C:\\Users\\Startklar\\OneDrive - HTL Spengergasse\\Schule\\Jahr 3\\15. PRE\\MOS\\SMOS\\SMOS\\SMOS.csproj",
         "projectName": "SMOS",
-        "projectPath": "C:\\Users\\Moritz\\RiderProjects\\mos\\SMOS\\SMOS\\SMOS.csproj",
-        "packagesPath": "C:\\Users\\Moritz\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Moritz\\RiderProjects\\mos\\SMOS\\SMOS\\obj\\",
+        "projectPath": "C:\\Users\\Startklar\\OneDrive - HTL Spengergasse\\Schule\\Jahr 3\\15. PRE\\MOS\\SMOS\\SMOS\\SMOS.csproj",
+        "packagesPath": "C:\\Users\\Startklar\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Startklar\\OneDrive - HTL Spengergasse\\Schule\\Jahr 3\\15. PRE\\MOS\\SMOS\\SMOS\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Moritz\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Startklar\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

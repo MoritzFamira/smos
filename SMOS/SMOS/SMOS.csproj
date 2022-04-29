@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Controllers\Delete" />
     <Folder Include="Pages\Uploads" />
   </ItemGroup>
 
