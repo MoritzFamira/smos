@@ -22,17 +22,17 @@ public class UploadController : ControllerBase
             if (file.Length > 0) {
                 //TODO handle different filetypes (.jpeg, .jpg, .png, ...)
                 string filetype = "";
-                switch (file.FileName.Split('.')[file.FileName.Split().Length-1])
+                if (file.FileName.EndsWith(".png"))
                 {
-                    case "png":
-                        filetype = ".png";
-                        break;
-                    case "jpg":
-                        filetype = ".jpg";
-                        break;
-                    default:
-                        return new HttpResponseMessage(HttpStatusCode.ExpectationFailed);
+                    filetype = ".png";
                 }
+
+                if (file.FileName.EndsWith(".jpg"))
+                {
+                    filetype = ".jpg";
+                }
+                        
+
                 Guid guid = Guid.NewGuid();
                 Console.WriteLine(guid);
                 
