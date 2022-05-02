@@ -20,7 +20,7 @@ public class UploadsController
             if (dbCon.IsConnect())
             {
                 string getUsers = @"use mos;
-select d_guid,d_filetype,d_u_artist,d_approved from d_designs;";
+select d_guid,d_filetype,u_name,d_approved,d_name from d_designs inner join u_users on u_id = d_u_artist;";
                 MySqlCommand cmd = new MySqlCommand(getUsers, dbCon.Connection);
                 Console.WriteLine("Getting Designs");
                 var reader = cmd.ExecuteReader();
@@ -28,7 +28,7 @@ select d_guid,d_filetype,d_u_artist,d_approved from d_designs;";
                 while (reader.Read())
                 {
                     string filename = reader.GetString(0) + reader.GetString(1);
-                    designs.Add(new Design(filename, reader.GetInt32(2)));
+                    designs.Add(new Design(filename, reader.GetString(2),reader.GetString(4)));
                 }
 
                 dbCon.Close();

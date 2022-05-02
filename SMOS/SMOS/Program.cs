@@ -45,6 +45,7 @@ use mos;
 set foreign_key_checks = 0;
 create table if not exists d_designs(
     d_guid varchar(255) primary key not null,
+    d_name varchar(50),
     d_u_artist int,
     # This could be done with another table and then an inner join; might make sense if that's a requirement for POS
     d_filetype varchar(10),

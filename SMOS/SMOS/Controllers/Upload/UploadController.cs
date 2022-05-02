@@ -11,7 +11,7 @@ public class UploadController : ControllerBase
 {
     [HttpPost(Name = "Upload")]
     //int artist is a user ID
-    public HttpResponseMessage UploadFile([FromForm] IFormFile file,[FromForm] int artist)
+    public HttpResponseMessage UploadFile([FromForm] IFormFile file,[FromForm] int artist,[FromForm] string name)
     {
         try
         {
@@ -50,14 +50,15 @@ public class UploadController : ControllerBase
                     if (dbCon.IsConnect())
                     {
                         string addDesign = @"use mos; 
-                        insert into d_designs (d_guid,d_u_artist,d_filetype,d_approved)
-                        VALUE (@guid,@artist,@filetype,@approved);";
+                        insert into d_designs (d_guid,d_u_artist,d_filetype,d_approved,d_name)
+                        VALUE (@guid,@artist,@filetype,@approved,@name);";
                         var cmd = new MySqlCommand(addDesign, dbCon.Connection);
                 
                         cmd.Parameters.AddWithValue("@guid", guid.ToString());
                         cmd.Parameters.AddWithValue("@artist", artist);
                         cmd.Parameters.AddWithValue("@filetype", filetype);
                         cmd.Parameters.AddWithValue("@approved", false);
+                        cmd.Parameters.AddWithValue("@name", name);
                         Console.WriteLine("Adding Design");
                         cmd.ExecuteNonQuery();
                         dbCon.Close();

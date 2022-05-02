@@ -2,12 +2,14 @@ namespace SMOS.Model;
 
 public class Design
 {
-    public Design(string filename, int artistId)
+    public Design(string filename, string artist,string name)
     {
         Filename = filename;
-        ArtistID = artistId;
+        Artist = artist;
+        Name = name;
     }
 
     public string Filename { get; }
-    public int ArtistID { get; }
+    public string Artist { get; }
+    public string Name { get; }
 }
