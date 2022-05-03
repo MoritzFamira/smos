@@ -11,6 +11,7 @@ namespace SMOS.Controllers.Posts;
 public class LoginController : ControllerBase
 {
     [HttpPost(Name = "Login")]
+    //this should at least return a user ID
     public HttpResponseMessage Login([FromForm] string name,[FromForm] string password)
     {
         var dbCon = DBConnection.Instance();
@@ -21,8 +22,13 @@ public class LoginController : ControllerBase
             if (dbCon.IsConnect())
             {
                 //TODO check whether there is a user with the name and password provided
-                string login = @"use mos;";
+                string login = @"use mos; select * from u_users
+where u_name like @name and u_password like sha2(@password,256);";
                 var cmd = new MySqlCommand(login, dbCon.Connection);
+                
+                cmd.Parameters.AddWithValue("@name", name);
+                cmd.Parameters.AddWithValue("@password", password);
+                
                 Console.WriteLine("Logging in");
                 cmd.ExecuteNonQuery();
                 dbCon.Close();
