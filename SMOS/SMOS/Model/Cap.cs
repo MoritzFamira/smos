@@ -1,15 +1,13 @@
 ﻿namespace SMOS.Model;
 
-public class TShirt : Product
+public class Cap : Product
 {
-    public TShirt(int id, string name, int price,  string size,string color,string countryOfManufacturer,string material) : base(id, name, price)
+    public Cap(int id, string name, int price, string color, string material, string countryOfManufacturer) : base(id, name, price)
     {
-        Size = size;
         Color = color;
         Material = material;
         CountryOfManufacturer = countryOfManufacturer;
     }
-    public string Size { get; }
     public string Color { get; }
     public string Material { get; }
 

@@ -6,13 +6,13 @@ using SMOS.Model;
 namespace SMOS.Controllers.Gets;
 
 [ApiController]
-[Route("api/GetTShirts")]
-public class TShirtController : ControllerBase
+[Route("api/GetCups")]
+public class CupController : ControllerBase
 {
-    [HttpGet(Name = "GetTShirts")]
-    public IEnumerable<TShirt> Get()
+    [HttpGet(Name = "GetCup")]
+    public IEnumerable<Cup> Get()
     {
-        List<TShirt> tShirts = new List<TShirt>();
+        List<Cup> cups = new List<Cup>();
         var dbCon = DBConnection.Instance();
         //this is needed to reset the connection
         dbCon.Reset();
@@ -20,17 +20,16 @@ public class TShirtController : ControllerBase
         {
             if (dbCon.IsConnect())
             {
-                string getProducts = @"use mos; select t_id,t_name,t_price,t_size,t_color,t_countryofmanufacturer,t_material
-                 from t_tshirts";
+                string getProducts = @"use mos; select c_id,c_name,c_price,c_color,c_countryofmanufacturer
+                 from c_cups";
                 var cmd = new MySqlCommand(getProducts, dbCon.Connection);
-                Console.WriteLine("Getting TShirts");
+                Console.WriteLine("Getting Cups");
                 var reader = cmd.ExecuteReader();
                 
                 while (reader.Read())
-                { 
-                    tShirts.Add(new TShirt(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2),
-                        reader.GetString(3),reader.GetString(4),reader.GetString(5),
-                        reader.GetString(6)));
+                {
+                    cups.Add(new Cup(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2),
+                        reader.GetString(3),reader.GetString(4)));
                 }
                 dbCon.Close();
             }
@@ -41,6 +40,6 @@ public class TShirtController : ControllerBase
         {
             Console.WriteLine($"Cannot connect to Database!\n{e}");
         }
-        return tShirts;
+        return cups;
     }
 }

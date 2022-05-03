@@ -6,13 +6,13 @@ using SMOS.Model;
 namespace SMOS.Controllers.Gets;
 
 [ApiController]
-[Route("api/GetTShirts")]
-public class TShirtController : ControllerBase
+[Route("api/GetHoodie")]
+public class HoodieController : ControllerBase
 {
-    [HttpGet(Name = "GetTShirts")]
-    public IEnumerable<TShirt> Get()
+    [HttpGet(Name = "GetHoodie")]
+    public IEnumerable<Hoodie> Get()
     {
-        List<TShirt> tShirts = new List<TShirt>();
+        List<Hoodie> hoodies = new List<Hoodie>();
         var dbCon = DBConnection.Instance();
         //this is needed to reset the connection
         dbCon.Reset();
@@ -20,17 +20,17 @@ public class TShirtController : ControllerBase
         {
             if (dbCon.IsConnect())
             {
-                string getProducts = @"use mos; select t_id,t_name,t_price,t_size,t_color,t_countryofmanufacturer,t_material
-                 from t_tshirts";
+                string getProducts = @"use mos; select h_id,h_name,h_price,h_size,h_color,h_countryofmanufacturer,h_material,h_hood
+                 from h_hoodies";
                 var cmd = new MySqlCommand(getProducts, dbCon.Connection);
-                Console.WriteLine("Getting TShirts");
+                Console.WriteLine("Getting Hoodies");
                 var reader = cmd.ExecuteReader();
                 
                 while (reader.Read())
-                { 
-                    tShirts.Add(new TShirt(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2),
+                {
+                    hoodies.Add(new Hoodie(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2),
                         reader.GetString(3),reader.GetString(4),reader.GetString(5),
-                        reader.GetString(6)));
+                        reader.GetString(6), reader.GetBoolean(7)));
                 }
                 dbCon.Close();
             }
@@ -41,6 +41,6 @@ public class TShirtController : ControllerBase
         {
             Console.WriteLine($"Cannot connect to Database!\n{e}");
         }
-        return tShirts;
+        return hoodies;
     }
 }

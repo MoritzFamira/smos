@@ -73,9 +73,46 @@ create table if not exists s_submissions(
     foreign key (s_u_artist) references u_users (u_id)
 );
 create table if not exists t_tshirts(
-  t_p_product int primary key not null auto_increment,
+  t_id int primary key not null auto_increment,
+  t_name varchar(45),
+  t_price int,
   t_size varchar(16),
-  t_color varchar(16)
+  t_color varchar(16),
+  t_material varchar(16),
+  t_countryofmanufacturer varchar(16)
+);
+create table if not exists h_hoodies(
+  h_id int primary key not null auto_increment,
+  h_name varchar(45),
+  h_price int,
+  h_size varchar(16),
+  h_color varchar(16),
+  h_countryofmanufacturer varchar(16),
+  h_material varchar(16),
+  h_hood bool
+);
+create table if not exists c_caps(
+  c_id int primary key not null auto_increment,
+  c_name varchar(45),
+  c_price int,
+  c_color varchar(16),
+  c_material varchar(16),
+  c_countryofmanufacturer varchar(16)
+);
+create table if not exists c_cups(
+  c_id int primary key not null auto_increment,
+  c_name varchar(45),
+  c_price int,
+  c_color varchar(16),
+  c_countryofmanufacturer varchar(16)
+);
+create table if not exists m_mousepads(
+  m_id int primary key not null auto_increment,
+  m_name varchar(45),
+  m_price int,
+  m_height int,
+  m_length int,
+  m_countryofmanufacturer varchar(16)
 );
 set foreign_key_checks = 1;";
         var cmd = new MySqlCommand(schemaAndDatabaseTest, dbCon.Connection);

@@ -6,13 +6,13 @@ using SMOS.Model;
 namespace SMOS.Controllers.Gets;
 
 [ApiController]
-[Route("api/GetTShirts")]
-public class TShirtController : ControllerBase
+[Route("api/GetMousePad")]
+public class MousePadController : ControllerBase
 {
-    [HttpGet(Name = "GetTShirts")]
-    public IEnumerable<TShirt> Get()
+    [HttpGet(Name = "GetMousePad")]
+    public IEnumerable<MousePad> Get()
     {
-        List<TShirt> tShirts = new List<TShirt>();
+        List<MousePad> mousePads = new List<MousePad>();
         var dbCon = DBConnection.Instance();
         //this is needed to reset the connection
         dbCon.Reset();
@@ -20,27 +20,25 @@ public class TShirtController : ControllerBase
         {
             if (dbCon.IsConnect())
             {
-                string getProducts = @"use mos; select t_id,t_name,t_price,t_size,t_color,t_countryofmanufacturer,t_material
-                 from t_tshirts";
+                string getProducts = @"use mos; select m_id,m_name,m_price,m_height,m_length,m_countryofmanufacturer
+                    from m_mousepads";
                 var cmd = new MySqlCommand(getProducts, dbCon.Connection);
-                Console.WriteLine("Getting TShirts");
+                Console.WriteLine("Getting MousePads");
                 var reader = cmd.ExecuteReader();
                 
                 while (reader.Read())
-                { 
-                    tShirts.Add(new TShirt(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2),
-                        reader.GetString(3),reader.GetString(4),reader.GetString(5),
-                        reader.GetString(6)));
+                {
+                    mousePads.Add(new MousePad(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2),
+                        reader.GetInt32(3),reader.GetInt32(4),reader.GetString(5)));
                 }
                 dbCon.Close();
             }
-
-            
+      
         }
         catch (Exception e)
         {
             Console.WriteLine($"Cannot connect to Database!\n{e}");
         }
-        return tShirts;
+        return mousePads;
     }
 }
