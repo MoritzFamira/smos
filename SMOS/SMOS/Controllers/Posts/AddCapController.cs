@@ -47,5 +47,4 @@ VALUE (null,@name,@price,@color,@material,@countryofmanufacturer);";
 
         return new HttpResponseMessage(HttpStatusCode.OK);
     }
-    
 }
