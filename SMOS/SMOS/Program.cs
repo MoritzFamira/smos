@@ -96,7 +96,7 @@ create table if not exists c_cups(
   c_price int,
   c_color varchar(16),
   c_countryofmanufacturer varchar(16)
-);
+);  
 create table if not exists m_mousepads(
   m_id int primary key not null auto_increment,
   m_name varchar(45),

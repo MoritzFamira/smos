@@ -11,7 +11,7 @@ namespace SMOS.Controllers.Posts;
 public class AddCapController : ControllerBase
 {
     [HttpPost(Name = "AddCap")]
-    public HttpResponseMessage Post([FromForm] string color,[FromForm] string countryofmanufacturer,[FromForm] string material,
+    public HttpResponseMessage POST([FromForm] string color,[FromForm] string countryofmanufacturer,[FromForm] string material,
         [FromForm] string name,[FromForm] int price)
     {
         var dbCon = DBConnection.Instance();

@@ -13,8 +13,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\Delete" />
+    <Folder Include="Pages\html" />
     <Folder Include="Pages\Uploads" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Pages\html\products.html" />
   </ItemGroup>
 
 </Project>
