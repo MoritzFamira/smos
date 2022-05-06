@@ -1,4 +1,5 @@
 ﻿using System.Net;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MySql.Data.MySqlClient;
 using SMOS.DataBase;
@@ -6,6 +7,7 @@ using SMOS.Model;
 
 namespace SMOS.Controllers.Posts;
 
+[Authorize]
 [ApiController]
 [Route("api/AddTShirt")]
 public class AddTshirtController : ControllerBase
