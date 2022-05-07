@@ -20,7 +20,7 @@ public class CapController : ControllerBase
         {
             if (dbCon.IsConnect())
             {
-                string getProducts = @"use mos; select c_id,c_name,c_price,c_color,c_material,c_countryofmanufacturer
+                string getProducts = @"use mos; select c_id,c_name,c_price,c_size,c_color,c_description
                  from c_caps";
                 var cmd = new MySqlCommand(getProducts, dbCon.Connection);
                 Console.WriteLine("Getting Caps");
@@ -28,8 +28,8 @@ public class CapController : ControllerBase
                 
                 while (reader.Read())
                 {
-                    caps.Add(new Cap(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2),
-                        reader.GetString(3),reader.GetString(4),reader.GetString(5)));
+                    caps.Add(new Cap(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2),reader.GetString(3),
+                        reader.GetString(4),reader.GetString(5)));
                 }
                 dbCon.Close();
             }

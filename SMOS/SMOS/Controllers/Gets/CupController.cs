@@ -20,7 +20,7 @@ public class CupController : ControllerBase
         {
             if (dbCon.IsConnect())
             {
-                string getProducts = @"use mos; select c_id,c_name,c_price,c_color,c_countryofmanufacturer
+                string getProducts = @"use mos; select c_id,c_name,c_price, c_size, c_color,c_description
                  from c_cups";
                 var cmd = new MySqlCommand(getProducts, dbCon.Connection);
                 Console.WriteLine("Getting Cups");
@@ -29,7 +29,7 @@ public class CupController : ControllerBase
                 while (reader.Read())
                 {
                     cups.Add(new Cup(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2),
-                        reader.GetString(3),reader.GetString(4)));
+                        reader.GetString(3),reader.GetString(4),reader.GetString(5)));
                 }
                 dbCon.Close();
             }

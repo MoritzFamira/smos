@@ -1,15 +1,16 @@
-﻿namespace SMOS.Model;
+﻿using System.Drawing;
+
+namespace SMOS.Model;
 
 public class Cap : Product
 {
-    public Cap(int id, string name, int price, string color, string material, string countryOfManufacturer) : base(id, name, price)
+    public Cap(int id, string name, int price, string size,string color, string description) : base(id, name, price)
     {
         Color = color;
-        Material = material;
-        CountryOfManufacturer = countryOfManufacturer;
+        Description = description;
+        Size = size;
     }
     public string Color { get; }
-    public string Material { get; }
-
-    public string CountryOfManufacturer { get; }
+    public string Description { get; }
+    public string Size { get; }
 }

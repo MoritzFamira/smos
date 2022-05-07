@@ -2,13 +2,13 @@
 
 public class MousePad : Product
 {
-    public MousePad(int id, string name, int price, int height, int length, string countryOfManufacturer) : base(id, name, price)
+    public MousePad(int id, string name, int price, string size, string color,  string description) : base(id, name, price)
     {
-        Height = height;
-        Length = length;
-        CountryOfManufacturer = countryOfManufacturer;
+        Size = size;
+        Color = color;
+        Description = description;
     }
-    public int Height { get; }
-    public int Length { get; }
-    public string CountryOfManufacturer { get; }
+    public string Size { get; }
+    public string Description { get; }
+    public  string Color { get; }
 }
