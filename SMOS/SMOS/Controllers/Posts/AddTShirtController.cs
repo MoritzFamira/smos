@@ -12,7 +12,7 @@ public class AddTshirtController : ControllerBase
 {
     [HttpPost(Name = "AddTShirt")]
     public HttpResponseMessage Post([FromForm] string size,[FromForm] string color,
-        [FromForm] string material,[FromForm] string countryofmanufacturer,[FromForm] string name,[FromForm] int price)
+        [FromForm] string description,[FromForm] string name,[FromForm] int price)
     {
         //Console.WriteLine("product: "+product);
         //Console.WriteLine("size: "+size);
@@ -27,15 +27,14 @@ public class AddTshirtController : ControllerBase
             if (dbCon.IsConnect())
             {
                 string addProduct = @"use mos; 
-insert into t_tshirts (t_id,t_name,t_price, t_size, t_color, t_material, t_countryofmanufacturer)
-VALUE (null,@name,@price,@size,@color,@material,@countryofmanufacturer);";
+insert into t_tshirts (t_id,t_name,t_price, t_size, t_color, t_description)
+VALUE (null,@name,@price,@size,@color,@description);";
                 var cmd = new MySqlCommand(addProduct,dbCon.Connection);
                 
                 
                 cmd.Parameters.AddWithValue("@size", size);
                 cmd.Parameters.AddWithValue("@color", color);
-                cmd.Parameters.AddWithValue("@material", material);
-                cmd.Parameters.AddWithValue("@countryofmanufacturer", countryofmanufacturer);
+                cmd.Parameters.AddWithValue("@description", description);
                 cmd.Parameters.AddWithValue("@name", name);
                 cmd.Parameters.AddWithValue("@price", price);
                 Console.WriteLine("Adding TShirt");

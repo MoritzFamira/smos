@@ -105,8 +105,7 @@ create table if not exists t_tshirts(
   t_price int,
   t_size varchar(16),
   t_color varchar(16),
-  t_material varchar(16),
-  t_countryofmanufacturer varchar(16)
+  t_description varchar(255)
 );
 create table if not exists h_hoodies(
   h_id int primary key not null auto_increment,

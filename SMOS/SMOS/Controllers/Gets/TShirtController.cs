@@ -20,7 +20,7 @@ public class TShirtController : ControllerBase
         {
             if (dbCon.IsConnect())
             {
-                string getProducts = @"use mos; select t_id,t_name,t_price,t_size,t_color,t_countryofmanufacturer,t_material
+                string getProducts = @"use mos; select t_id,t_name,t_price,t_size,t_color, t_description
                  from t_tshirts";
                 var cmd = new MySqlCommand(getProducts, dbCon.Connection);
                 Console.WriteLine("Getting TShirts");
@@ -29,8 +29,7 @@ public class TShirtController : ControllerBase
                 while (reader.Read())
                 { 
                     tShirts.Add(new TShirt(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2),
-                        reader.GetString(3),reader.GetString(4),reader.GetString(5),
-                        reader.GetString(6)));
+                        reader.GetString(3),reader.GetString(4), reader.GetString(5)));
                 }
                 dbCon.Close();
             }
