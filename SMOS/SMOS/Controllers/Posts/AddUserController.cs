@@ -1,10 +1,12 @@
 ﻿using System.Net;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MySql.Data.MySqlClient;
 using SMOS.DataBase;
 
 namespace SMOS.Controllers.Posts;
 
+[Authorize]
 [ApiController]
 [Route("api/AddUser")]
 public class AddUser
