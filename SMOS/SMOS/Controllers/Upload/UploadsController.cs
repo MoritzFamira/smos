@@ -27,8 +27,8 @@ select d_guid,d_filetype,u_name,d_approved,d_name from d_designs inner join u_us
 
                 while (reader.Read())
                 {
-                    string filename = reader.GetString(0) + reader.GetString(1);
-                    designs.Add(new Design(filename, reader.GetString(2),reader.GetString(4)));
+                    //string filename = reader.GetString(0) + reader.GetString(1);
+                    designs.Add(new Design(reader.GetString(1),reader.GetString(0), reader.GetString(2),reader.GetString(4)));
                 }
 
                 dbCon.Close();
