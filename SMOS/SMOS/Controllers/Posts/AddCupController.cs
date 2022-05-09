@@ -13,7 +13,7 @@ namespace SMOS.Controllers.Posts;
 public class AddCupController : ControllerBase
 {
     [HttpPost(Name = "AddCup")]
-    public HttpResponseMessage Post([FromForm] string color,[FromForm] string countryofmanufacturer,[FromForm] string name,[FromForm] int price)
+    public HttpResponseMessage Post([FromForm] string color,[FromForm] string size ,[FromForm] string description,[FromForm] string name,[FromForm] int price)
     {
         var dbCon = DBConnection.Instance();
         //this is needed to reset the connection
@@ -23,13 +23,14 @@ public class AddCupController : ControllerBase
             if (dbCon.IsConnect())
             {
                 string addProduct = @"use mos; 
-insert into c_cups (c_id,c_name,c_price,c_color,c_countryofmanufacturer)
-VALUE (null,@name,@price,@color,@countryofmanufacturer);";
+insert into c_cups (c_id,c_name,c_price, c_size, c_color,c_description)
+VALUE (null,@name,@price,@size,@color,@description);";
                 var cmd = new MySqlCommand(addProduct,dbCon.Connection);
                 
                 
                 cmd.Parameters.AddWithValue("@color", color);
-                cmd.Parameters.AddWithValue("@countryofmanufacturer", countryofmanufacturer);
+                cmd.Parameters.AddWithValue("@size", size);
+                cmd.Parameters.AddWithValue("@description", description);
                 cmd.Parameters.AddWithValue("@name", name);
                 cmd.Parameters.AddWithValue("@price", price);
                 Console.WriteLine("Adding Cup");

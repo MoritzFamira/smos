@@ -13,7 +13,7 @@ namespace SMOS.Controllers.Posts;
 public class AddCapController : ControllerBase
 {
     [HttpPost(Name = "AddCap")]
-    public HttpResponseMessage Post([FromForm] string color,[FromForm] string countryofmanufacturer,[FromForm] string material,
+    public HttpResponseMessage Post([FromForm] string color,[FromForm] string description,[FromForm] string size,
         [FromForm] string name,[FromForm] int price)
     {
         var dbCon = DBConnection.Instance();
@@ -24,16 +24,16 @@ public class AddCapController : ControllerBase
             if (dbCon.IsConnect())
             {
                 string addProduct = @"use mos; 
-insert into c_caps (c_id,c_name,c_price,c_color, c_material, c_countryofmanufacturer)
-VALUE (null,@name,@price,@color,@material,@countryofmanufacturer);";
+insert into c_caps (c_id,c_name,c_price, c_size,c_color, c_description)
+VALUE (null,@name,@price,@size,@color,@description);";
                 var cmd = new MySqlCommand(addProduct,dbCon.Connection);
                 
                 
                 cmd.Parameters.AddWithValue("@color", color);
-                cmd.Parameters.AddWithValue("@countryofmanufacturer", countryofmanufacturer);
+                cmd.Parameters.AddWithValue("@description", description);
                 cmd.Parameters.AddWithValue("@name", name);
                 cmd.Parameters.AddWithValue("@price", price);
-                cmd.Parameters.AddWithValue("@material", material);
+                cmd.Parameters.AddWithValue("@size", size);
                 Console.WriteLine("Adding Cap");
                 cmd.ExecuteNonQuery();
                 dbCon.Close();

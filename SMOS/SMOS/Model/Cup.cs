@@ -2,11 +2,13 @@
 
 public class Cup : Product
 {
-    public Cup(int id, string name, int price, string color, string countryOfManufacturer) : base(id, name, price)
+    public Cup(int id, string name, int price, string size, string color, string description) : base(id, name, price)
     {
         Color = color;
-        CountryOfManufacturer = countryOfManufacturer;
+        Description = description;
+        Size = size;
     }
     public string Color { get; }
-    public string CountryOfManufacturer { get; }
+    public string Size { get; }
+    public string Description { get; }
 }

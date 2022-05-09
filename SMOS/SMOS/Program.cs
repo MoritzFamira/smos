@@ -113,32 +113,31 @@ create table if not exists h_hoodies(
   h_price int,
   h_size varchar(16),
   h_color varchar(16),
-  h_countryofmanufacturer varchar(16),
-  h_material varchar(16),
-  h_hood bool
+  h_description varchar(255)
 );
 create table if not exists c_caps(
   c_id int primary key not null auto_increment,
   c_name varchar(45),
   c_price int,
+  c_size varchar(16),
   c_color varchar(16),
-  c_material varchar(16),
-  c_countryofmanufacturer varchar(16)
+  c_description varchar(255)
 );
 create table if not exists c_cups(
   c_id int primary key not null auto_increment,
   c_name varchar(45),
   c_price int,
+  c_size varchar(16),
   c_color varchar(16),
-  c_countryofmanufacturer varchar(16)
+  c_description varchar(255)
 );
 create table if not exists m_mousepads(
   m_id int primary key not null auto_increment,
   m_name varchar(45),
   m_price int,
-  m_height int,
-  m_length int,
-  m_countryofmanufacturer varchar(16)
+  m_size varchar(16),
+  m_color varchar(16),
+  m_description varchar(255)
 );
 set foreign_key_checks = 1;";
         var cmd = new MySqlCommand(schemaAndDatabaseTest, dbCon.Connection);

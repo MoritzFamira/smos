@@ -20,7 +20,7 @@ public class MousePadController : ControllerBase
         {
             if (dbCon.IsConnect())
             {
-                string getProducts = @"use mos; select m_id,m_name,m_price,m_height,m_length,m_countryofmanufacturer
+                string getProducts = @"use mos; select m_id,m_name,m_price,m_size,m_color,m_description
                     from m_mousepads";
                 var cmd = new MySqlCommand(getProducts, dbCon.Connection);
                 Console.WriteLine("Getting MousePads");
@@ -29,7 +29,7 @@ public class MousePadController : ControllerBase
                 while (reader.Read())
                 {
                     mousePads.Add(new MousePad(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2),
-                        reader.GetInt32(3),reader.GetInt32(4),reader.GetString(5)));
+                        reader.GetString(3),reader.GetString(4),reader.GetString(5)));
                 }
                 dbCon.Close();
             }

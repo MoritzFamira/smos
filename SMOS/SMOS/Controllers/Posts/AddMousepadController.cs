@@ -14,7 +14,7 @@ public class AddMousepadController : ControllerBase
 {
     [HttpPost(Name = "AddMousepad")]
     public HttpResponseMessage Post([FromForm] string name,[FromForm] int price,
-    [FromForm] int height,[FromForm] int length,[FromForm] string countryofmanufacturer)
+    [FromForm] string size,[FromForm] string color,[FromForm] string description)
     {
         var dbCon = DBConnection.Instance();
         //this is needed to reset the connection
@@ -24,16 +24,16 @@ public class AddMousepadController : ControllerBase
             if (dbCon.IsConnect())
             {
                 string addProduct = @"use mos; 
-insert into m_mousepads (m_id,m_name,m_price,m_height,m_length, m_countryofmanufacturer)
-VALUE (null,@name,@price, @height,@length,@countryofmanufacturer);";
+insert into m_mousepads (m_id,m_name,m_price,m_size,m_color, m_description)
+VALUE (null,@name,@price, @size,@color,@description);";
                 var cmd = new MySqlCommand(addProduct,dbCon.Connection);
                 
                 
-                cmd.Parameters.AddWithValue("@height", height);
-                cmd.Parameters.AddWithValue("@countryofmanufacturer", countryofmanufacturer);
+                cmd.Parameters.AddWithValue("@size", size);
+                cmd.Parameters.AddWithValue("@description", description);
                 cmd.Parameters.AddWithValue("@name", name);
                 cmd.Parameters.AddWithValue("@price", price);
-                cmd.Parameters.AddWithValue("@length", length);
+                cmd.Parameters.AddWithValue("@color", color);
                 Console.WriteLine("Adding Mousepad");
                 cmd.ExecuteNonQuery();
                 dbCon.Close();
