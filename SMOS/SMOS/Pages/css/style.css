@@ -1,6 +1,11 @@
 /*############################################## basic stuff ##############################################*/
 /*#########################################################################################################*/
 
+@font-face {
+    font-family: H4ck3r;
+    src: url(../fonts/Hacker.ttf);
+}
+
 body{
     margin: 0;
     padding: 0;
@@ -8,11 +13,6 @@ body{
     text-decoration: none;
     color: var(--tc);
     background-color: var(--bgc);
-}
-
-@font-face {
-    font-family: H4ck3r;
-    src: url(../fonts/Hacker.ttf);
 }
 
 a{
@@ -26,7 +26,6 @@ a:hover{
 
 footer{
     width: 100%;
-    bottom: 0;
     position: absolute;
     background-color: var(--bgcd);
 }
@@ -44,8 +43,12 @@ input:focus{
     min-height: 100vh;
 }
 
-#content-wrap {
-   padding-bottom: 2rem; 
+
+.redtext{
+    color: red;
+}
+.greentext{
+    color: rgb(0, 199, 0);
 }
 
 .clean-button{
@@ -77,6 +80,9 @@ input:focus{
     position: relative;
 }
 
+.underline{
+    text-decoration: underline;
+}
 
 
 
@@ -106,16 +112,34 @@ input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-results-button,
 input[type="search"]::-webkit-search-results-decoration { -webkit-appearance:none;; }
 
+input {
+    border:none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    -ms-appearance: none;
+}
+
+select{
+    outline: none;
+    color: var(--tc);
+    background-color: var(--bgcd);
+    border: 0.1rem solid var(--tc);
+}
+
+
+
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 5px;
   height: 5px;
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--bgcd);
+  background: var(--tc);
 }
 ::-webkit-scrollbar-track {
-  background: var(--bgc);
-  border-left: 4px solid var(--bgcd);
+  width: 5px;
+  background: var(--bgcd);
+  
 }
 
 /*############################################## flex stuff ##############################################*/
@@ -135,6 +159,14 @@ input[type="search"]::-webkit-search-results-decoration { -webkit-appearance:non
 
 .flex-wrap{
     flex-wrap: wrap;
+}
+
+.flex-column{
+    flex-direction: column;
+}
+
+.flex-space-between{
+    justify-content: space-between;
 }
 
 /*#################### navbar flex stuff ####################*/
@@ -188,6 +220,7 @@ input[type="search"]::-webkit-search-results-decoration { -webkit-appearance:non
 .navbar-dropdown-child{
     width: auto;
     margin: 1rem;
+    margin-top: 0.5rem;
     /*dropdown styling*/
 }
 .navbar-dropdown-mobile-parent{
@@ -348,4 +381,132 @@ input[type="search"]::-webkit-search-results-decoration { -webkit-appearance:non
 
 .dropdown:hover > .clean-button{
     text-decoration: underline;
+}
+
+/*############################################## product stuff #############################################*/
+/*##########################################################################################################*/
+
+.product_child_image{
+    width: 30%;
+    min-width: 20rem;
+    padding-top: 4rem;
+    height: calc(100vh - 20%);
+}
+.product_child_des{
+    width: 30%;
+    padding: 1rem;
+}
+.product_child_des > *{
+    margin: 1rem;
+}
+.product_child_designs{
+    width: 30%;
+    min-width: 20rem;
+    max-height: 80vh;
+    margin-top: 0.5rem;
+    overflow-y: scroll;
+    flex-wrap: wrap;
+}
+.product_image_img{
+    height: auto;
+    width: 100%;
+}
+.product_design_image_img{
+    position: absolute;
+    width: 25%;
+    height: auto;
+    left: 35%;
+    top: calc(30% + 2.8vh);
+}
+.product_designs{
+    display: flex;
+    flex-direction: row;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    position: relative;
+    width: auto;
+    background-color: var(--bgcd);
+}
+.product_designs_img{
+    max-height: 4.5rem;
+    width: auto;
+}
+.product_designs_des{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    max-width: 55%;
+    word-break: break-all;
+    padding-left: 0.5rem;
+}
+.product_designs_des > h4 {
+    font-size: 1.2rem;
+}
+.product_designs_des > h3 {
+    font-size: 0.8rem;
+}
+.product_designs_btn{
+    position:absolute;
+    bottom: 0.5rem;
+    right: 0.5rem;
+    border: 0.1rem solid var(--tc);
+}
+.product_addcart_btn{
+    border: 0.1rem solid var(--tc);
+}
+
+@media (max-width: 650px){
+    .product_child_image{
+        width: 80%;
+    }
+    .product_child_des{
+        width: 100%;
+    }
+    .product_designs_des{
+        max-width: 45% !important;
+    }
+    .product_designs{
+        width: 80% !important;
+    }
+}
+@media (max-width: 925px){
+    .product_child_designs{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        max-height: 30rem;
+    }
+    .product_designs{
+        width: calc(100% / 2.5);
+        min-width: 15rem;
+    }
+    
+    .product_designs_des{
+        max-width: 45%;
+    }
+}
+
+/*############################################## cart stuff ################################################*/
+/*##########################################################################################################*/
+
+.cart_product_child{
+    display: flex;
+    background-color: red;
+    width: 80%;
+    margin: auto;
+    height: 12rem;
+    justify-content: space-between;
+}
+
+.cart_image_img{
+    height: 12rem;
+}
+
+.cart_design_image_img{
+    height: 4rem;
+    left: 38%;
+    top: 28%;
+    position: absolute;
 }

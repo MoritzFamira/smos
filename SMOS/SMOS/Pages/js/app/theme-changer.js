@@ -1,30 +1,30 @@
 $(document).ready(function () {
-  //checks if visited website first time
-  if (localStorage.getItem('theme') == null) {
-    localStorage.setItem('theme', "../css/theme-dark.css");
-  }
+  //get prefix
+  var prefix = getPrefix();
   //change stylesheet
-  $('#theme').attr('href', localStorage.getItem('theme'));
-  //change logo
-  if (localStorage.getItem('theme').includes("hacker")) {
-    $('.logo').attr('src', "../img/logo-green.png");
-  }
-  //theme changer onclick
-  $('.theme-dark').click(function () { swapStyleSheet("../css/theme-dark.css") });
-  $('.theme-light').click(function () { swapStyleSheet("../css/theme-light.css") });
-  $('.theme-hacker').click(function () { swapStyleSheet("../css/theme-hacker.css") });
-});
+  $('#theme').attr('href', prefix + "css/" + localStorage.theme + ".css");
+  //let website first load
+  setTimeout(function () {
+    //change logo
+    if (localStorage.theme.includes("hacker")) {
+      $('.logo').attr('src', prefix + "img/logo_green.png");
+    }
+    //theme changer onclick 
+    $('.theme-button').click(function () { swapStyleSheet($(this).attr("class").substring(13)) });
+  });
 
-//swaps style sheet
-function swapStyleSheet(sheet) {
-  //change stylesheet and localstorage var
-  $('#theme').attr('href', sheet);
-  localStorage.setItem('theme', sheet);
-  //change logo
-  if (sheet.includes("hacker")) {
-    $('.logo').attr('src', "../img/logo-green.png");
+  //swaps style sheet
+  function swapStyleSheet(sheet) {
+    // new Audio('../../audio/gomme.mp3').play()
+    //change stylesheet and localstorage var
+    $('#theme').attr('href', prefix + "css/" + sheet + ".css");
+    localStorage.theme = sheet;
+    //change logo
+    if (sheet.includes("hacker")) {
+      $('.logo').attr('src', prefix + "img/logo_green.png");
+    }
+    else {
+      $('.logo').attr('src', prefix + "img/logo.png");
+    }
   }
-  else {
-    $('.logo').attr('src', "../img/logo.png");
-  }
-}
+});

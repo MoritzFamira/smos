@@ -6,10 +6,10 @@ using SMOS.Model;
 namespace SMOS.Controllers.Gets;
 
 [ApiController]
-[Route("api/GetMousePad")]
+[Route("api/getmousepad")]
 public class MousePadController : ControllerBase
 {
-    [HttpGet(Name = "GetMousePad")]
+    [HttpGet(Name = "getmousepad")]
     public IEnumerable<MousePad> Get()
     {
         List<MousePad> mousePads = new List<MousePad>();

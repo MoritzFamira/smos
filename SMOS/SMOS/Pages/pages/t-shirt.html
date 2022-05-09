@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- meta -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- title -->
+    <title>Home</title>
+    <!-- icon -->
+    <link rel="icon" type="image/vnd.microsoft.icon" href="">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cabin&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous" />
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" id="theme" href="#" />
+    <!-- scripts -->
+    <script src="../js/app/general.js"></script>
+    <script src="../js/app/theme-changer.js"></script>
+    <script src="../js/builder/general-builder.js"></script>
+    <script src="../js/app/product.js"></script>
+</head>
+
+<body>
+    <div id="page-container">
+        <!-- navbar -->
+        <nav></nav>
+        <!-- page content -->
+        <div id='page-content'>
+            <!-- js copy -->
+            <div class="parent">
+                <div class="product_child_image relative">
+                    <img class="product_image_img" src="../img/products/t-shirt_white.png">
+                    <img class="product_design_image_img" src="#" alt="">
+                </div>
+                <div class="product_child_des">
+                    <h1 id="productname">T-Shirt</h1>
+                    <p id="productprice" class="underline">€ 19,99</p>
+                    <div>
+
+                        <span>Color:</span>
+                        <select id="select-color">
+                            <option value="white">White</option>
+                            <option value="black">Black</option>
+                        </select>
+
+                        <span>Size:</span>
+                        <select id="select-size">
+                            <option value="" selected>-</option>
+                            <option value="S">S</option>
+                            <option value="M">M</option>
+                            <option value="L">L</option>
+                            <option value="XL">XL</option>
+                            <option value="2XL">2XL</option>
+                            <option value="3XL">3XL</option>
+                        </select>
+
+                    </div>
+                    <div>
+                        <button class="clean-button normal-colors product_addcart_btn">Add to cart</button>
+                        <p id="addtoCartmessage" class=""></p>
+                    </div>
+
+                    <p id="productdes">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+                        tempor invidunt
+                        ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo
+                        dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor
+                        sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+                        invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et
+                        justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem
+                        ipsum dolor sit amet.</p>
+
+
+                </div>
+                <div class="product_child_designs">
+                    <div class="product_designs">
+                        <img class="product_designs_img" src="../uploads/56238045.png">
+                        <div class="product_designs_des">
+                            <h4 id="56238045name">Street Uighur</h4>
+                            <h3 id="56238045autor">by Antò</h3>
+                        </div>
+                        <button class="clean-button normal-colors product_designs_btn" id="56238045">Apply</button>
+                    </div>
+                    <div class="product_designs">
+                        <img class="product_designs_img" src="../uploads/12344423.png">
+                        <div class="product_designs_des">
+                            <h4 id="12344423name">Naruto Kamikaze</h4>
+                            <h3 id="12344423autor">by Kaknaki</h3>
+                        </div>
+                        <button class="clean-button normal-colors product_designs_btn" id="12344423">Apply</button>
+                    </div>
+                    <div class="product_designs">
+                        <img class="product_designs_img" src="../uploads/23123454.png">
+                        <div class="product_designs_des">
+                            <h4 id="23123454name">Dubi</h4>
+                            <h3 id="23123454autor">by Snoop Dogg</h3>
+                        </div>
+                        <button class="clean-button normal-colors product_designs_btn" id="23123454">Apply</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- footer -->
+    <footer></footer>
+</body>
+
+</html>
