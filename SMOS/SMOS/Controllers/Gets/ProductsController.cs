@@ -6,11 +6,11 @@ using SMOS.Model;
 namespace SMOS.Controllers.Gets;
 
 [ApiController]
-[Route("api/GetProducts")]
+[Route("api/getproduct")]
 public class ProductsController : ControllerBase
 {
 
-    [HttpGet(Name = "GetProducts")]
+    [HttpGet(Name = "getproduct")]
     public IEnumerable<Product> Get()
     {
         List<Product> products = new List<Product>();

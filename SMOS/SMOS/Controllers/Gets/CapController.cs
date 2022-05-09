@@ -6,7 +6,7 @@ using SMOS.Model;
 namespace SMOS.Controllers.Gets;
 
 [ApiController]
-[Route("api/GetCap")]
+[Route("api/getcap")]
 public class CapController : ControllerBase
 {
     [HttpGet(Name = "GetCap")]

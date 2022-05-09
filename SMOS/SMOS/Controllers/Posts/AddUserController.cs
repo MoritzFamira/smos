@@ -7,7 +7,7 @@ using SMOS.DataBase;
 
 namespace SMOS.Controllers.Posts;
 
-[Authorize]
+//[Authorize]
 [ApiController]
 [Route("api/AddUser")]
 public class AddUser
