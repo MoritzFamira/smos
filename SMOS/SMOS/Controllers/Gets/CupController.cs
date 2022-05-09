@@ -20,9 +20,9 @@ public class CupController : ControllerBase
         {
             if (dbCon.IsConnect())
             {
-                string getProducts = @"use mos; select c_id,c_name,c_price, c_size, c_color,c_description
+                string getCups = @"use mos; select c_name,c_price, c_size, c_color,c_description
                  from c_cups";
-                var cmd = new MySqlCommand(getProducts, dbCon.Connection);
+                var cmd = new MySqlCommand(getCups, dbCon.Connection);
                 Console.WriteLine("Getting Cups");
                 var reader = cmd.ExecuteReader();
                 

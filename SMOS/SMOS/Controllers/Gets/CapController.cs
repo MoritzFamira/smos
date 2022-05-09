@@ -20,9 +20,9 @@ public class CapController : ControllerBase
         {
             if (dbCon.IsConnect())
             {
-                string getProducts = @"use mos; select c_id,c_name,c_price,c_size,c_color,c_description
+                string getCaps = @"use mos; select c_name,c_price,c_size,c_color,c_description
                  from c_caps";
-                var cmd = new MySqlCommand(getProducts, dbCon.Connection);
+                var cmd = new MySqlCommand(getCaps, dbCon.Connection);
                 Console.WriteLine("Getting Caps");
                 var reader = cmd.ExecuteReader();
                 

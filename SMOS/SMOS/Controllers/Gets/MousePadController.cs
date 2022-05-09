@@ -20,9 +20,9 @@ public class MousePadController : ControllerBase
         {
             if (dbCon.IsConnect())
             {
-                string getProducts = @"use mos; select m_id,m_name,m_price,m_size,m_color,m_description
+                string getMousepads = @"use mos; select m_name,m_price,m_size,m_color,m_description
                     from m_mousepads";
-                var cmd = new MySqlCommand(getProducts, dbCon.Connection);
+                var cmd = new MySqlCommand(getMousepads, dbCon.Connection);
                 Console.WriteLine("Getting MousePads");
                 var reader = cmd.ExecuteReader();
                 

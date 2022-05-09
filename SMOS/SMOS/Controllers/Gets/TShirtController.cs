@@ -20,9 +20,9 @@ public class TShirtController : ControllerBase
         {
             if (dbCon.IsConnect())
             {
-                string getProducts = @"use mos; select t_id,t_name,t_price,t_size,t_color, t_description
+                string getTshirts = @"use mos; select t_name,t_price,t_size,t_color, t_description
                  from t_tshirts";
-                var cmd = new MySqlCommand(getProducts, dbCon.Connection);
+                var cmd = new MySqlCommand(getTshirts, dbCon.Connection);
                 Console.WriteLine("Getting TShirts");
                 var reader = cmd.ExecuteReader();
                 
