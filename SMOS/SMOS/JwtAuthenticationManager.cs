@@ -16,7 +16,7 @@ public class JwtAuthenticationManager : IJwtAuthenticationManager
     {
         Key = key;
     }
-    public string Authenticate(string username, string password)
+    public string[] Authenticate(string username, string password)
     {
         var dbCon = DBConnection.Instance();
         dbCon.Reset();
@@ -24,15 +24,21 @@ public class JwtAuthenticationManager : IJwtAuthenticationManager
         {
             if (dbCon.IsConnect())
             {
-                string login = @"use mos; select * from u_users
+                string login = @"use mos; select u_id from u_users
 where u_name like @name and u_password like sha2(@password,256);";
                 var cmd = new MySqlCommand(login, dbCon.Connection);
                 
                 cmd.Parameters.AddWithValue("@name", username);
                 cmd.Parameters.AddWithValue("@password", password);
                 
-                Console.WriteLine("Logging in");
-                cmd.ExecuteNonQuery();
+                //Console.WriteLine("Logging in");
+                var reader = cmd.ExecuteReader();
+                int userid = 0;
+                while (reader.Read())
+                {
+                    userid = reader.GetInt32(0);
+                }
+                Console.WriteLine(userid);
                 dbCon.Close();
                 
                 //fragt nicht was das macht
@@ -48,7 +54,9 @@ where u_name like @name and u_password like sha2(@password,256);";
                     SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(tokenKey),SecurityAlgorithms.HmacSha256Signature)
                 };
                 var token = tokenHandler.CreateToken(tokenDescriptor);
-                return tokenHandler.WriteToken(token);
+                var usertoken = new string[2]{tokenHandler.WriteToken(token),userid.ToString()};
+                //Console.WriteLine(usertoken[1]);
+                return usertoken;
             }
         }
         //TODO make sure the right status code is returned if login fails
