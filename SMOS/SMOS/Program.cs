@@ -79,6 +79,14 @@ create table if not exists d_designs(
     d_approved bool,
     foreign key (d_u_artist) references u_users (u_id)
 );
+create table if not exists du_votes(
+  du_id int primary key not null auto_increment unique,
+  du_u_id int not null,
+  du_d_guid varchar(255) not null,
+  du_isupvote bool,
+  foreign key (du_u_id) references u_users (u_id),
+  foreign key (du_d_guid) references d_designs (d_guid)
+); 
 create table if not exists p_products(
     p_id int primary key not null auto_increment,
     p_name varchar(255),
@@ -139,6 +147,7 @@ create table if not exists m_mousepads(
   m_color varchar(16),
   m_description varchar(255)
 );
+
 set foreign_key_checks = 1;";
         var cmd = new MySqlCommand(schemaAndDatabaseTest, dbCon.Connection);
         Console.WriteLine("Creating Database");

@@ -1,11 +1,7 @@
-﻿using System.IdentityModel.Tokens.Jwt;
-using System.Net;
-using System.Text.Json.Nodes;
+﻿using System.Text.Json.Nodes;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using MySql.Data.MySqlClient;
-using SMOS.DataBase;
-using SMOS.Model;
+
 
 namespace SMOS.Controllers.Posts;
 
@@ -25,7 +21,8 @@ public class LoginController : ControllerBase
     {
         var token = JwtAuthenticationManager.Authenticate(name, password);
         if (token is null) return Unauthorized();
-        var reply = new JsonObject(new[] {KeyValuePair.Create<string, JsonNode?>("jwt", token[0]),KeyValuePair.Create<string, JsonNode?>("userid",Int32.Parse(token[1])), });
+        var reply = new JsonObject(new[] {KeyValuePair.Create<string, JsonNode?>("jwt", token[0]),
+            KeyValuePair.Create<string, JsonNode?>("userid",Int32.Parse(token[1])), });
         return Ok(reply);
     }
 }
