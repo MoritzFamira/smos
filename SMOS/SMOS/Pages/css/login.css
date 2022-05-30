@@ -1,0 +1,34 @@
+/*############################################## login stuff ##############################################*/
+/*########################################################################################################*/
+.logreg-area{
+   display: flex;
+   flex-direction: column;
+   margin-left: 20%;
+   margin-right: 20%;
+   align-items: center;
+   justify-content: center;
+}
+.form-area{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+   
+
+}
+.reg-form{
+    background-color: var(--bgcd);
+    margin: 2%;
+    padding: 1%;
+    padding-left: 15rem;
+    padding-right: 15rem;
+    border-radius: 5px;
+}
+
+.log-form{
+    background-color: var(--bgcd);
+    margin: 2%;
+    padding: 1%;
+    padding-right: 15rem;
+    padding-left: 15rem;
+    border-radius: 5px;
+}

@@ -9,10 +9,10 @@
     <title>Home</title>
     <!-- icon -->
     <link rel="icon" type="image/vnd.microsoft.icon" href="">
-    <!-- bootstrap -->
+    <!-- jquery 3.6.0 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- bootstrap 4.5.2 -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,11 +22,11 @@
         integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous" />
     <!-- stylesheets -->
     <link rel="stylesheet" href="../css/style.css" />
-    <link rel="stylesheet" id="theme" href="#" />
+    <link rel="stylesheet" href="../css/cart.css" />
     <!-- scripts -->
     <script src="../js/app/general.js"></script>
     <script src="../js/app/theme-changer.js"></script>
-    <script src="../js/builder/general-builder.js"></script>
+    <script src="../js/app/builder.js"></script>
     <script src="../js/app/cart.js"></script>
 </head>
 
@@ -36,28 +36,20 @@
         <nav></nav>
         <!-- page content -->
         <div id='page-content'>
-            <div class="parent flex-column">
-                <div class="cart_product_child">
-                    
-                    
-                    <div>
-                        <div class="relative">
-                            <img class="cart_image_img" src="../img/products/t-shirt_white.png">
-                            <img class="cart_design_image_img" src="../uploads/56238045.png" alt="">
-                            <h3>test</h3>
-                        </div>
-                        <h3>test</h3>
-                    </div>
-                    <h3>test</h3>
+            <div class="parent">
+                <div class="cart_parent">
+                    <div id="total"></div>
+                    <div id="products"></div>
                 </div>
-
-
             </div>
         </div>
     </div>
-
     <!-- footer -->
     <footer></footer>
+    <!-- loader -->
+    <div class="loader-wrapper">
+        <span class="loader"><span class="loader-inner"></span></span>
+    </div>
 </body>
 
 </html>
