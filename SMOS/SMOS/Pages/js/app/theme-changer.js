@@ -1,30 +1,35 @@
 $(document).ready(function () {
-  //get prefix
-  var prefix = getPrefix();
-  //change stylesheet
-  $('#theme').attr('href', prefix + "css/" + localStorage.theme + ".css");
-  //let website first load
-  setTimeout(function () {
-    //change logo
-    if (localStorage.theme.includes("hacker")) {
-      $('.logo').attr('src', prefix + "img/logo_green.png");
-    }
-    //theme changer onclick 
-    $('.theme-button').click(function () { swapStyleSheet($(this).attr("class").substring(13)) });
-  });
+    var root = document.querySelector(':root');
+    changeStyle(root);
 
-  //swaps style sheet
-  function swapStyleSheet(sheet) {
-    // new Audio('../../audio/gomme.mp3').play()
-    //change stylesheet and localstorage var
-    $('#theme').attr('href', prefix + "css/" + sheet + ".css");
-    localStorage.theme = sheet;
-    //change logo
-    if (sheet.includes("hacker")) {
-      $('.logo').attr('src', prefix + "img/logo_green.png");
-    }
-    else {
-      $('.logo').attr('src', prefix + "img/logo.png");
-    }
-  }
+    setTimeout(function () {
+        $('.theme-button').click(function () {
+            localStorage.theme = $(this).attr("class").substring(13);
+            changeStyle(root);
+        });
+    });
 });
+
+function changeStyle(root) {
+    switch (true) {
+        case localStorage.theme == "theme-light":
+            setStyle(root, 'rgb(255, 255, 255)', 'rgb(233, 233, 233)', 'rgb(0, 0, 0)', "'Cabin', sans-serif");
+            setTimeout(function () { $('.logo').attr('src', getPrefix() + "img/logo.png") });
+            break;
+        case localStorage.theme == "theme-hacker":
+            setStyle(root, 'rgb(18, 18, 18)', 'rgb(0, 0, 0)', 'rgb(41, 194, 21)', 'H4ck3r');
+            setTimeout(function () { $('.logo').attr('src', getPrefix() + "img/logo_green.png") });
+            break;
+        default:
+            setStyle(root, 'rgb(50, 50, 50)', 'rgb(40, 40, 40)', 'rgb(255, 255, 255)', "'Cabin', sans-serif");
+            setTimeout(function () { $('.logo').attr('src', getPrefix() + "img/logo.png") });
+            break;
+    }
+}
+
+function setStyle(root, bgc, bgcd, tc, fo) {
+    root.style.setProperty('--bgc', bgc);
+    root.style.setProperty('--bgcd', bgcd);
+    root.style.setProperty('--tc', tc);
+    root.style.setProperty('--fo', fo);
+}
