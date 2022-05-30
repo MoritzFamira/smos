@@ -2,7 +2,7 @@ namespace SMOS.Model;
 
 public class Product
 {
-    public Product(int id, string name, int price)//,string merchType)
+    public Product(int id, string name, double price)//,string merchType)
     {
         Id = id;
         Name = name;
@@ -12,6 +12,6 @@ public class Product
 
     public int Id { get; }
     public string Name { get; }
-    public int Price { get; }
+    public double Price { get; }
     //public string MerchType { get; }
 }
