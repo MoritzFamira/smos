@@ -80,12 +80,12 @@ create table if not exists d_designs(
     foreign key (d_u_artist) references u_users (u_id)
 );
 create table if not exists du_votes(
-  du_id int primary key not null auto_increment unique,
   du_u_id int not null,
   du_d_guid varchar(255) not null,
   du_isupvote bool,
   foreign key (du_u_id) references u_users (u_id),
-  foreign key (du_d_guid) references d_designs (d_guid)
+  foreign key (du_d_guid) references d_designs (d_guid),
+  primary key (du_u_id, du_d_guid)
 ); 
 create table if not exists p_products(
     p_id int primary key not null auto_increment,
