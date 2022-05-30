@@ -53,7 +53,7 @@ async function buildProduct() {
 
 async function buildDesigns() {
     var result = '';
-    await $.getJSON('../data/getalldesigns.json', (d) => {
+    await $.getJSON('../../api/getalldesigns', (d) => {
         d.forEach((d) => {
             result += `<div class="product_designs">
                 <img class="product_designs_img" src="../Uploads/` + d.guid + d.fileEnding + `">
