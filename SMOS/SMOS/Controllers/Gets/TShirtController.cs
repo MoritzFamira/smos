@@ -28,8 +28,8 @@ public class TShirtController : ControllerBase
                 
                 while (reader.Read())
                 { 
-                    tShirts.Add(new TShirt(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2),
-                        reader.GetString(3),reader.GetString(4), reader.GetString(5)));
+                    tShirts.Add(new TShirt(reader.GetInt32(0),reader.GetString(1),((double) reader.GetInt32(2))/100,
+                        reader.GetString(3).Split(',').ToList(),reader.GetString(4).Split(',').ToList(),reader.GetString(5)));
                 }
                 dbCon.Close();
             }
