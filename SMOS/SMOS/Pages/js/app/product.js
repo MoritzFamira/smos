@@ -15,7 +15,7 @@ async function buildProduct() {
     var colors = '';
     var sizes = '';
     var result = '';
-    await $.getJSON('../data/get' + getFileName() + '.json', (p) => {
+    await $.getJSON('../../api/get' + getFileName(), (p) => {
         p.forEach((p) => {
             p.color.forEach((c) => { colors += '<option>' + c + '</option>' });
             p.size.forEach((s) => { sizes += '<option>' + s + '</option>' });
