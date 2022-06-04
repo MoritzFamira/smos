@@ -53,10 +53,11 @@ async function buildProduct() {
 
 async function buildDesigns() {
     var result = '';
-    await $.getJSON('../data/getalldesigns.json', (d) => {
+    await $.getJSON('../../api/getalldesigns', (d) => {
         d.forEach((d) => {
+            sessionStorage.setItem(d.guid,d.fileEnding)
             result += `<div class="product_designs">
-                <img class="product_designs_img" src="../Uploads/` + d.guid + d.fileEnding + `">
+                <img class="product_designs_img" src="../../Uploads/` + d.guid + d.fileEnding + `">
                 <div class="product_designs_des">
                     <h4 id="` + d.guid + `name">` + d.name + `</h4>
                     <h3 id="` + d.guid + `autor">by ` + d.artist + `</h3>
@@ -127,7 +128,8 @@ function addtoCart() {
 
 function changeDesign() {
     $('.product_designs_btn').click(function () {
-        $('.product_design_image_img').attr('src', '../Uploads/' + $(this).attr('id') + '.png');
+        let guid = $(this).attr('id');
+        $('.product_design_image_img').attr('src', '../Uploads/' + guid + sessionStorage.getItem(guid));
     });
 }
 
