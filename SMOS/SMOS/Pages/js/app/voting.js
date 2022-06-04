@@ -19,14 +19,35 @@ async function buildVoting() {
                 <img class="design-img-voting" src="../Uploads/` + d.guid + d.fileEnding + `">
             </div>
             <div class="voting-button-all">
-                <button type="button" id="`+d.guid+`" class="voting-button">Up</button>       
+                <button type="button" id="`+d.guid+`" class="voting-button">Up</button> 
+                <p class="text-align-center align_center" id="`+d.guid+`count">0</p>      
             </div>
         </div>`
         });
     });
     return result;
 }
+async function upload(e) {
+    console.log($("#upload-form")[0])
+    e.preventDefault();
+    let formData = new FormData($("#upload-form")[0])
+    formData.append("artist", 1)//localStorage.user)
+    //TODO give the design a name somehow
+    formData.append("name", "TEST")
+    //console.log(formData.get("artist"))
+    console.log(formData)
+    let response = await fetch('../../api/Upload', {
+        method: 'POST',
+        body: formData,
+        enctype:"multipart/form-data"
+    });
+    let result = await response.json();
+
+    alert(result.message);
+}
+
 function voteDesign(){
+
     $('.voting-button').click(function () {
         alert("Hello\nHow are you?"); 
 

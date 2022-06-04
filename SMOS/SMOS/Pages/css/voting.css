@@ -2,7 +2,9 @@
   width: 25%;
   margin: 1rem 2.5% 5rem 2.5%;
 }
-
+input {
+  width: 90%;
+}
 .voting-child-middle {
   display: flex;
   flex-direction: column;
