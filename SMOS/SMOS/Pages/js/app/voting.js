@@ -28,14 +28,16 @@ async function buildVoting() {
     return result;
 }
 async function upload(e) {
-    console.log($("#upload-form")[0])
+    //console.log($("#upload-form")[0])
     e.preventDefault();
     let formData = new FormData($("#upload-form")[0])
     formData.append("artist", 1)//localStorage.user)
     //TODO give the design a name somehow
-    formData.append("name", "TEST")
+    //formData.append("name", "TEST2")
     //console.log(formData.get("artist"))
-    console.log(formData)
+    console.log(formData.get("name"))
+    console.log(formData.get("file"))
+    console.log(formData.get("artist"))
     let response = await fetch('../../api/Upload', {
         method: 'POST',
         body: formData,
