@@ -24,6 +24,7 @@ public class JwtAuthenticationManager : IJwtAuthenticationManager
         {
             if (dbCon.IsConnect())
             {
+                
                 string login = @"use mos; select u_id from u_users
 where u_name like @name and u_password like sha2(@password,256);";
                 var cmd = new MySqlCommand(login, dbCon.Connection);
@@ -34,6 +35,10 @@ where u_name like @name and u_password like sha2(@password,256);";
                 //Console.WriteLine("Logging in");
                 var reader = cmd.ExecuteReader();
                 int userid = 0;
+                if (!reader.HasRows)
+                {
+                    //TODO logic when password or user is wrong
+                }
                 while (reader.Read())
                 {
                     userid = reader.GetInt32(0);

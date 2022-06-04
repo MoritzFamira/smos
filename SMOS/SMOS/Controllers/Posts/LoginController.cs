@@ -16,7 +16,7 @@ public class LoginController : ControllerBase
     }
     [HttpPost(Name = "Login")]
     [AllowAnonymous]
-    //this should at least return a user ID
+    //this should at least return a user ID TODO this shouldn't work if the password is wrong
     public JsonObject Login([FromForm] string name,[FromForm] string password)
     {
         var token = JwtAuthenticationManager.Authenticate(name, password);
