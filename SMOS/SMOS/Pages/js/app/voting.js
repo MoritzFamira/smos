@@ -30,7 +30,7 @@ async function buildVoting() {
 async function upload(e) {
     e.preventDefault();
     let formData = new FormData($("#upload-form")[0])
-    formData.append("artist", 1)//localStorage.user)
+    formData.append("artist", parseInt(localStorage.userid))
     //console.log(formData.get("name"))
     //console.log(formData.get("file"))
     //console.log(formData.get("artist"))
