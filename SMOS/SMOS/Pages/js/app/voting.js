@@ -6,7 +6,7 @@ $(document).ready(async function () {
 });
 async function buildVoting() {
     var result = '';
-    await $.getJSON('../data/getalldesigns.json', (d) => {
+    await $.getJSON('../../api/getalldesigns', (d) => {
         d.forEach((d) => {
             result += `<div class="voting-design">
             <div class="design-title-voting">
@@ -28,24 +28,19 @@ async function buildVoting() {
     return result;
 }
 async function upload(e) {
-    //console.log($("#upload-form")[0])
     e.preventDefault();
     let formData = new FormData($("#upload-form")[0])
     formData.append("artist", 1)//localStorage.user)
-    //TODO give the design a name somehow
-    //formData.append("name", "TEST2")
+    //console.log(formData.get("name"))
+    //console.log(formData.get("file"))
     //console.log(formData.get("artist"))
-    console.log(formData.get("name"))
-    console.log(formData.get("file"))
-    console.log(formData.get("artist"))
     let response = await fetch('../../api/Upload', {
         method: 'POST',
         body: formData,
         enctype:"multipart/form-data"
     });
-    let result = await response.json();
-
-    alert(result.message);
+    //let result = await response.json();
+    location.reload()
 }
 
 function voteDesign(){
