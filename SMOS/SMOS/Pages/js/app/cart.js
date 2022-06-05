@@ -5,8 +5,6 @@ $(document).ready(function () {
     $('#total').html(calcTotal());
     //removing item
     removeItem();
-
-
 });
 
 function buildCart() {
@@ -16,7 +14,7 @@ function buildCart() {
         result += `<div class="cart_product_parent">
             <div class="cart_product_image_child">
                 <img class="cart_product_image_img" src="../img/products/` + item[0] + `_` + item[2] + `.png">
-                <img class="cart_product_image_design_img" src="../Uploads/` + item[4] + `.png">
+                <img class="cart_product_image_design_img" src="../Uploads/` + item[4] + item[7] + `">
             </div>
             <div class="cart_product_des_child">
                 <h2>` + item[0] + `</h2>

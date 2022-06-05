@@ -57,8 +57,8 @@ async function buildDesigns() {
         d.forEach((d) => {
             sessionStorage.setItem(d.guid,d.fileEnding)
             result += `<div class="product_designs">
-                <img class="product_designs_img" src="../../Uploads/` + d.guid + d.fileEnding + `">
-                <div class="product_designs_des">
+                <img class="product_designs_img" src="../Uploads/` + d.guid + d.fileEnding + `">
+                <div class="product_designs_des"> 
                     <h4 id="` + d.guid + `name">` + d.name + `</h4>
                     <h3 id="` + d.guid + `autor">by ` + d.artist + `</h3>
                 </div>
@@ -111,7 +111,8 @@ function addtoCart() {
                     $('#select-size :selected').text(),
                     id,
                     $('#' + id + 'name').text(),
-                    $('#' + id + 'autor').text()
+                    $('#' + id + 'autor').text(),
+                    $('.product_design_image_img').attr('src').split("/").pop().slice(-4)
                 ]);
 
                 localStorage.cart = JSON.stringify(cart);
