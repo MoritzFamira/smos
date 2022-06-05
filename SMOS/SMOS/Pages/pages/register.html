@@ -1,3 +1,5 @@
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -18,10 +20,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cabin&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
-        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous" />
+          integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous" />
     <!-- stylesheets -->
     <link rel="stylesheet" href="../css/style.css" />
-    <link rel="stylesheet" href="../css/register.css" />
+    <link rel="stylesheet" href="../css/login.css" />
     <!-- scripts -->
     <script src="../js/app/general.js"></script>
     <script src="../js/app/theme-changer.js"></script>
@@ -30,34 +32,39 @@
 </head>
 
 <body>
-    <div id="page-container">
-        <!-- navbar -->
-        <nav></nav>
-        <!-- page content -->
-        <div id='page-content'>
-            <div class="reg-area">
-                <h1>Register</h1>
+<div id="page-container">
+    <!-- navbar -->
+    <nav></nav>
+    <!-- page content -->
+    <div id="page-content">
 
-                <form id="form" class="reg-input">
+        <div class="form-area">
+            <div class="log-form">
+                <h2 class="log-title">Register</h2>
+                <form id="form" class="inputarea">
                     <input class="log-input" type="text" placeholder="Username" name="name" required>
-                    <input class="log-input" type="text" placeholder="Password" name="password" required>
+                    <input class="log-input" type="password" placeholder="Password" name="password" required>
                 </form>
-                <div class="reg-button-text">
-                    <button type="button" class="create-account-reg">Create Account</button>
-                    <p class="text-reg">You already have an Account?
-                        <a href="../pages/login.html" class="button-login-reg">Login</a>
+
+                <div class="logbttn-area">
+                    <button class="create-account-reg log-button">Register</button>
+                    <p>You already have an account?<a class="reg-btn" href="../pages/login.html"> Login</a>
                     </p>
 
+
                 </div>
+
             </div>
         </div>
-    </div>
 
-    <footer></footer>
-    <!-- loader -->
-    <div class="loader-wrapper">
-        <span class="loader"><span class="loader-inner"></span></span>
     </div>
+</div>
+
+<footer></footer>
+<!-- loader -->
+<div class="loader-wrapper">
+    <span class="loader"><span class="loader-inner"></span></span>
+</div>
 </body>
 
 </html>
