@@ -26,7 +26,9 @@ public class LoginController : ControllerBase
             KeyValuePair.Create<string,JsonNode?>("statusCode",403),
             KeyValuePair.Create<string,JsonNode?>("reasonPhrase","Forbidden")
         });
-        var reply = new JsonObject(new[] {KeyValuePair.Create<string, JsonNode?>("jwt", token[0]),
+        var reply = new JsonObject(new[] {KeyValuePair.Create<string,JsonNode?>("statusCode",200),
+            KeyValuePair.Create<string,JsonNode?>("reasonPhrase","OK"),
+            KeyValuePair.Create<string, JsonNode?>("jwt", token[0]),
             KeyValuePair.Create<string, JsonNode?>("userid",Int32.Parse(token[1])), });
         return reply;
     }
