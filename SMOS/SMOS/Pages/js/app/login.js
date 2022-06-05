@@ -5,8 +5,12 @@ $(document).ready(function () {
             localStorage.setItem("userid", data.userid)
             localStorage.setItem("jwt", data.jwt)
         });
-        console.log(response.statusCode)
-        
+        switch (true){
+            case response.statusCode=="403":
+                $('.errormsg').html("Error: Wrong password or username!")
+                break;
+            default:
+                location.href = "../index.html";
+        }
     });
-    
 });
