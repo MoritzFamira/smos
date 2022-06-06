@@ -149,6 +149,7 @@ create table if not exists m_mousepads(
 );
 
 set foreign_key_checks = 1;";
+        //TODO add blank design to database on first startup along with user "noone"
         var cmd = new MySqlCommand(schemaAndDatabaseTest, dbCon.Connection);
         Console.WriteLine("Creating Database");
         cmd.ExecuteReader();

@@ -6,7 +6,7 @@ $(document).ready(async function () {
 });
 async function buildVoting() {
     var result = '';
-    await $.getJSON('../../api/getalldesigns', (d) => {
+    await $.getJSON('../../api/getUnapprovedDesigns', (d) => {
         d.forEach((d) => {
             result += `<div class="voting-design">
             <div class="design-title-voting">
