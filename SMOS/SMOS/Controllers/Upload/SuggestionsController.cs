@@ -6,10 +6,10 @@ using SMOS.Model;
 namespace SMOS.Controllers.Upload;
 
 [ApiController]
-[Route("api/GetAllDesigns")]
-public class UploadsController
+[Route("api/GetUnapprovedDesigns")]
+public class SuggestionsController
 {
-    [HttpGet(Name = "GetAllDesigns")]
+    [HttpGet(Name = "getUnapprovedDesigns")]
     public IEnumerable<Design> Get()
     {
         List<Design> designs = new List<Design>();
@@ -17,11 +17,11 @@ public class UploadsController
         dbCon.Reset();
         try
         {
-            if (dbCon.IsConnect())  
+            if (dbCon.IsConnect())
             {
                 string getUsers = @"use mos;
 select d_guid,d_filetype,u_name,d_approved,d_name from d_designs inner join u_users on u_id = d_u_artist
-where d_approved = true;";
+where d_approved = false;";
                 MySqlCommand cmd = new MySqlCommand(getUsers, dbCon.Connection);
                 Console.WriteLine("Getting Designs");
                 var reader = cmd.ExecuteReader();
