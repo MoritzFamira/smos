@@ -18,9 +18,10 @@ async function buildVoting() {
             <div class="design-pic-voting">
                 <img class="design-img-voting" src="../Uploads/` + d.designId + d.designFileType + `">
             </div>
-            <div class="voting-button-all">
-                <button type="button" id="`+d.designId+`" class="voting-button">Up</button> 
-                <p class="text-align-center align_center" id="`+d.designId+`count">`+d.votes+`</p>      
+            <div class="voting-button-all flex flex content-center">
+                
+                <button type="button" id="`+d.designId+`" class="clean-button normal-colors voting-button ">Vote</button> 
+                <p class="pl-3 text-align-center align_center " id="`+d.designId+`count">`+d.votes+`</p> 
             </div>
         </div>`
         });

@@ -35,7 +35,7 @@ function buildNav(prefix) {
                         <div class="dropdown">
                             <!-- navbar dropdown button -->
                             <button class="clean-button normal-colors">
-                                <a href="` + prefix + `pages/products.html"><span>Products</span></a>
+                                <a href="#"><span>Products</span></a>
                                 <i class="fa fa-caret-down"></i>
                             </button>
                             <!-- navbar dropdown menu -->
@@ -43,7 +43,7 @@ function buildNav(prefix) {
                                 <div class="navbar-dropdown-parent">
                                     <!-- navbar dropdown menu box -->
                                     <div class="navbar-dropdown-child">
-                                        <a href="` + prefix + `pages/products.html"><div class="navbar-dropdown-all">All</div></a> 
+                                        <a href="#"><div class="navbar-dropdown-all">All</div></a> 
                                         <a href="` + prefix + `pages/t-shirt.html"><div>T-Shirt</div></a>
                                         <a href="` + prefix + `pages/hoodie.html"><div>Hoodie</div></a>
                                         <a href="` + prefix + `pages/mousepad.html"><div>Mousepad</div></a>

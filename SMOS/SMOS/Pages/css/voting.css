@@ -8,6 +8,12 @@
   padding: 0.25rem;
   border-radius: 8px;
 }
+.content-center {
+  justify-content: center;
+  justify-items: center;
+  flex-direction: row;
+}
+
 .voting-child-middle {
   display: flex;
   flex-direction: column;
@@ -84,11 +90,13 @@ h1 {
   margin-bottom: 1rem;
 }
 .voting-button{
-  border: none;
-  background-color: var(--tc);
-  color: var(--bgcd);
+  border: 2px solid var(--tc);
+  /*background-color: var(--tc);
+  color: var(--bgcd);*/
   padding-left: 2vh;
   padding-right: 2vh;
+  color: var(--tc);
+  background-color: var(--bgcd);
 }
 .design-pic-voting{
   margin-bottom: 2rem;
