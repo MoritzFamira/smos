@@ -51,7 +51,9 @@ public class UploadController : ControllerBase
                     {
                         string addDesign = @"use mos; 
                         insert into d_designs (d_guid,d_u_artist,d_filetype,d_approved,d_name)
-                        VALUE (@guid,@artist,@filetype,@approved,@name);";
+                        VALUE (@guid,@artist,@filetype,@approved,@name);
+insert into du_votes ( du_u_id, du_d_guid, du_isupvote)
+    value (1,@guid,false);";
                         var cmd = new MySqlCommand(addDesign, dbCon.Connection);
                 
                         cmd.Parameters.AddWithValue("@guid", guid.ToString());
@@ -62,6 +64,7 @@ public class UploadController : ControllerBase
                         Console.WriteLine("Adding Design");
                         cmd.ExecuteNonQuery();
                         dbCon.Close();
+                        
                     }
                 }
                 catch (Exception e)

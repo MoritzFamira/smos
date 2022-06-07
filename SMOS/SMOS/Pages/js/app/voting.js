@@ -6,21 +6,21 @@ $(document).ready(async function () {
 });
 async function buildVoting() {
     var result = '';
-    await $.getJSON('../../api/getUnapprovedDesigns', (d) => {
+    await $.getJSON('../../api/allvotes', (d) => {
         d.forEach((d) => {
             result += `<div class="voting-design">
             <div class="design-title-voting">
-                <h4>`+d.name + `</h4>
+                <h4>`+d.designName + `</h4>
             </div>
             <div>
-                <p>by: `+d.artist + `</p>
+                <p>by: `+d.artistName + `</p>
             </div>
             <div class="design-pic-voting">
-                <img class="design-img-voting" src="../Uploads/` + d.guid + d.fileEnding + `">
+                <img class="design-img-voting" src="../Uploads/` + d.designId + d.designFileType + `">
             </div>
             <div class="voting-button-all">
-                <button type="button" id="`+d.guid+`" class="voting-button">Up</button> 
-                <p class="text-align-center align_center" id="`+d.guid+`count">0</p>      
+                <button type="button" id="`+d.designId+`" class="voting-button">Up</button> 
+                <p class="text-align-center align_center" id="`+d.designId+`count">`+d.votes+`</p>      
             </div>
         </div>`
         });
@@ -58,6 +58,6 @@ function voteDesign(){
            body: formData,
             enctype:"multipart/form-data"
         });
-        
+        location.reload()
     });
 }
