@@ -15,7 +15,7 @@ async function buildProduct() {
     var colors = '';
     var sizes = '';
     var result = '';
-    await $.getJSON('../data/get' + getFileName() + '.json', (p) => {
+    await $.getJSON('../../api/get' + getFileName(), (p) => {
         p.forEach((p) => {
             p.color.forEach((c) => { colors += '<option>' + c + '</option>' });
             p.size.forEach((s) => { sizes += '<option>' + s + '</option>' });
@@ -53,11 +53,12 @@ async function buildProduct() {
 
 async function buildDesigns() {
     var result = '';
-    await $.getJSON('../data/getalldesigns.json', (d) => {
+    await $.getJSON('../../api/getalldesigns', (d) => {
         d.forEach((d) => {
+            sessionStorage.setItem(d.guid,d.fileEnding)
             result += `<div class="product_designs">
                 <img class="product_designs_img" src="../Uploads/` + d.guid + d.fileEnding + `">
-                <div class="product_designs_des">
+                <div class="product_designs_des"> 
                     <h4 id="` + d.guid + `name">` + d.name + `</h4>
                     <h3 id="` + d.guid + `autor">by ` + d.artist + `</h3>
                 </div>
@@ -110,7 +111,8 @@ function addtoCart() {
                     $('#select-size :selected').text(),
                     id,
                     $('#' + id + 'name').text(),
-                    $('#' + id + 'autor').text()
+                    $('#' + id + 'autor').text(),
+                    $('.product_design_image_img').attr('src').split("/").pop().slice(-4)
                 ]);
 
                 localStorage.cart = JSON.stringify(cart);
@@ -127,7 +129,8 @@ function addtoCart() {
 
 function changeDesign() {
     $('.product_designs_btn').click(function () {
-        $('.product_design_image_img').attr('src', '../Uploads/' + $(this).attr('id') + '.png');
+        let guid = $(this).attr('id');
+        $('.product_design_image_img').attr('src', '../Uploads/' + guid + sessionStorage.getItem(guid));
     });
 }
 

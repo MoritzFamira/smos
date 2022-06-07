@@ -8,6 +8,19 @@ $(document).ready(function () {
     }
     //website loader
     $(".loader-wrapper").delay(150).fadeOut("slow");
+    //search
+    setTimeout(function () {
+        $('input[type=search]').on('search', function(){
+            window.location.href = "https://www.google.com/search?q=" + this.value;  
+        });
+        $('.navbar-search-button').click(function () {
+            if($('.navbar-desktop-input').val()!=''){
+                window.location.href = "https://www.google.com/search?q=" + $('.navbar-desktop-input').val();
+            } else{
+                window.location.href = "https://www.google.com/search?q=" + $('.navbar-mobile-input').val();
+            }
+        });
+    });
 });
 
 

@@ -53,34 +53,13 @@ function buildNav(prefix) {
                                 </div>
                             </div>
                         </div>
-                        <!-- navbar dropdown Voting-->
-                        <div class="dropdown">
-                            <!-- navbar dropdown button -->
+                        <!-- navbar Voting-->
+                        <div>
+                            <!-- navbar button -->
                             <button class="clean-button normal-colors">
-                                <span>Voting</span>
-                                <i class="fa fa-caret-down"></i>
+                                <a href="`+prefix +`pages/voting.html">Voting</a>
                             </button>
-                            <!-- navbar dropdown menu -->
-                            <div class="dropdown_menu left dropdown_menu--animated navbar-dropdown_menu">
-                                <div class="navbar-dropdown-parent">
-                                    <!-- navbar dropdown menu box -->
-                                    <div class="navbar-dropdown-child">
-                                        <h5>For Men</h5>
-                                            <ul>
-                                                <li>Hoodies</li>
-                                                <li>Hoodies</li>
-                                            </ul>
-                                    </div>
-                                    <!-- navbar dropdown menu box -->
-                                    <div class="navbar-dropdown-child">
-                                        <h5>For Men</h2>
-                                            <ul>
-                                                <li>Hoodies</li>
-                                                <li>Hoodies</li>
-                                            </ul>
-                                    </div>
-                                </div>
-                            </div>
+                            
                         </div>
                     </div>
                     <!-- navbar links right -->
@@ -177,34 +156,13 @@ function buildNav(prefix) {
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- navbar dropdown Voting-->
-                                    <div class="dropdown">
-                                        <!-- navbar dropdown button -->
+                                    <!-- navbar Voting-->
+                                    <div>
+                                        <!-- navbar button -->
                                         <button class="clean-button normal-colors">
-                                            <span>Voting</span>
-                                            <i class="fa fa-caret-down"></i>
+                                            <a href="\`+prefix +\`pages/voting.html">Voting</a>
                                         </button>
-                                        <!-- navbar dropdown menu -->
-                                        <div class="dropdown_menu left dropdown_menu--animated navbar-dropdown_menu">
-                                            <div class="navbar-dropdown-parent">
-                                                <!-- navbar dropdown menu box -->
-                                                <div class="navbar-dropdown-child">
-                                                    <h5>For Men</h2>
-                                                        <ul>
-                                                            <li>Hoodies</li>
-                                                            <li>Hoodies</li>
-                                                        </ul>
-                                                </div>
-                                                <!-- navbar dropdown menu box -->
-                                                <div class="navbar-dropdown-child">
-                                                    <h5>For Men</h2>
-                                                        <ul>
-                                                            <li>Hoodies</li>
-                                                            <li>Hoodies</li>
-                                                        </ul>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        
                                     </div>
                                 </div>
                                 <!-- navbar links right -->

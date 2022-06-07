@@ -24,6 +24,7 @@ public class JwtAuthenticationManager : IJwtAuthenticationManager
         {
             if (dbCon.IsConnect())
             {
+                
                 string login = @"use mos; select u_id from u_users
 where u_name like @name and u_password like sha2(@password,256);";
                 var cmd = new MySqlCommand(login, dbCon.Connection);

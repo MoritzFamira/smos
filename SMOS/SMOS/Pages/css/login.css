@@ -1,34 +1,67 @@
-/*############################################## login stuff ##############################################*/
+/*############################################## login ###################################################*/
 /*########################################################################################################*/
-.logreg-area{
-   display: flex;
-   flex-direction: column;
-   margin-left: 20%;
-   margin-right: 20%;
-   align-items: center;
-   justify-content: center;
+
+
+
+.log-title{
+    margin: auto; 
+    margin-bottom: 2%;
 }
-.form-area{
+.log-form{
+    background-color: var(--bgcd);
+    margin: 4%;
+    margin-top: 2%;
+    margin-left: 15%;
+    margin-right: 15%;
+    padding: 3%;
+    padding-bottom: 5%;
+    padding-left: 10%;
+    padding-right: 10%;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    
+
+}
+.inputarea {
+    display: flex;
+    flex-direction: column;
+}
+.logbttn-area{
     display: flex;
     flex-direction: row;
     justify-content: center;
-   
-
-}
-.reg-form{
-    background-color: var(--bgcd);
-    margin: 2%;
-    padding: 1%;
-    padding-left: 15rem;
-    padding-right: 15rem;
-    border-radius: 5px;
+    align-items: baseline;
 }
 
-.log-form{
-    background-color: var(--bgcd);
-    margin: 2%;
+
+.log-input {
+    margin: 1%;
     padding: 1%;
-    padding-right: 15rem;
-    padding-left: 15rem;
-    border-radius: 5px;
+    padding-left: 2%;
+    padding-right: 2%;
+    border-radius: 8px;
+    
 }
+.log-button {
+    background-color: var(--bgc);
+    border: none;
+    color: var(--fo);
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 8px;
+
+}
+.reg-btn{
+    font-weight:bold;
+}
+.reg-btn:hover {
+    
+    text-decoration: underline;
+
+  }

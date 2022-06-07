@@ -15,8 +15,6 @@ public class AddUser
     [HttpPost(Name = "AddUser")]
     public HttpResponseMessage Post([FromForm] string name,[FromForm] string password)
     {
-        //Console.WriteLine("name: "+name);
-        //Console.WriteLine("price: "+price);
         var dbCon = DBConnection.Instance();
         //this is needed to reset the connection
         dbCon.Reset();

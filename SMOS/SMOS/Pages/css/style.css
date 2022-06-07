@@ -61,6 +61,10 @@ input:focus {
     color: rgb(0, 199, 0);
 }
 
+.errormsg{
+    margin: 1rem;
+}
+
 .clean-button {
     border: none;
 }

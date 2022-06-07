@@ -27,6 +27,7 @@
     <script src="../js/app/general.js"></script>
     <script src="../js/app/theme-changer.js"></script>
     <script src="../js/app/builder.js"></script>
+    <script src="../js/app/login.js"></script>
 </head>
 
 <body>
@@ -36,15 +37,23 @@
         <!-- page content -->
         <div id="page-content">
 
-            <div class="logreg-area">
-                <h3>Join MOS</h3>
-                <div class="form-area">
-                    <div class="reg-form">
-                        <h4>Register</h4>
-
+            <div class="form-area">
+                <div class="log-form">
+                    <h3 class="log-title">Login</h3>
+                    <form id="form" class="inputarea">
+                        <input id="username" class="log-input" type="text" placeholder="Username" name="name" required>
+                        <input id="password" class="log-input" type="password" placeholder="Password" name="password" required>
+                    </form>
+                    <div>
+                        <p class="errormsg redtext"></p>
                     </div>
-                    <div class="log-form">
-                        <h4>Login</h4>
+                    <div class="logbttn-area">
+                        
+                        <button class="log-button">Login</button>
+                        <p>You don't have an account yet?<a class="reg-btn" href="../pages/register.html"> Register</a>
+                        </p>
+                        
+
 
                     </div>
                 </div>
@@ -52,6 +61,7 @@
 
         </div>
     </div>
+
 
     <!-- footer -->
     <footer></footer>
