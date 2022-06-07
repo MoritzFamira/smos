@@ -32,6 +32,7 @@ async function dragfetch(){
             body: formData,
             enctype: "multipart/form-data"
         });
+        document.getElementById('upload-form').reset();
         formData.reset();
         dropfile = "";     
     }

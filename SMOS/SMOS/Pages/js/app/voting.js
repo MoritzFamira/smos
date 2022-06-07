@@ -41,6 +41,8 @@ async function upload(e) {
         body: formData,
         enctype: "multipart/form-data"
     });
+    document.getElementById('upload-form').reset();
+    formData.reset();
     //let result = await response.json();
     location.reload()
 }
