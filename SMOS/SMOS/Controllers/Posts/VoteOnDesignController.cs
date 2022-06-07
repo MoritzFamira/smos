@@ -30,6 +30,8 @@ insert into du_votes ( du_u_id, du_d_guid, du_isupvote)
                 cmd.Parameters.AddWithValue("@user", userId);
                 cmd.Parameters.AddWithValue("@design", designGuid);
                 cmd.Parameters.AddWithValue("@isupvote", isUpvote);
+                
+                //Console.WriteLine(userId + " "+designGuid+" "+isUpvote);
                 Console.WriteLine("Adding Vote");
                 cmd.ExecuteNonQuery();
                 dbCon.Close();

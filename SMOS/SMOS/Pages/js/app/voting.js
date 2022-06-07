@@ -45,8 +45,19 @@ async function upload(e) {
 
 function voteDesign(){
 
-    $('.voting-button').click(function () {
-        alert("Hello\nHow are you?"); 
-
+    $('.voting-button').click( async function () {
+        //console.log(this.id);
+        
+        let formData = new FormData();
+        formData.append("userId",parseInt(localStorage.userid))
+        formData.append("designGuid",this.id)
+        formData.append("isUpvote",true)
+        //console.log(formData.get("designGuid"))
+        let response = await fetch('../../api/Vote',{
+           method: 'POST',
+           body: formData,
+            enctype:"multipart/form-data"
+        });
+        
     });
 }
