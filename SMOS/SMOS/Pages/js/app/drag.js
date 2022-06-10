@@ -25,7 +25,7 @@ dropArea.addEventListener("drop", (event)=>{
 async function dragfetch(){
     if(dropfile != ""){
         let formData = new FormData($("#upload-form")[0])
-        formData.append("file", dropfile)
+        formData.set("file", dropfile)
         formData.append("artist", parseInt(localStorage.userid))
         let response = await fetch('../../api/Upload', {
             method: 'POST',
