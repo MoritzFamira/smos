@@ -13,7 +13,7 @@
     padding: 1rem;
 }
 
-.product_child_des>* {
+.product_child_des > * {
     margin: 1rem;
 }
 
@@ -64,11 +64,11 @@
     padding-left: 0.5rem;
 }
 
-.product_designs_des>h4 {
+.product_designs_des > h4 {
     font-size: 1.2rem;
 }
 
-.product_designs_des>h3 {
+.product_designs_des > h3 {
     font-size: 0.8rem;
 }
 

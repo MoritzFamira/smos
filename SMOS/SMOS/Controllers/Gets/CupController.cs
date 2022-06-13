@@ -25,21 +25,22 @@ public class CupController : ControllerBase
                 var cmd = new MySqlCommand(getProducts, dbCon.Connection);
                 Console.WriteLine("Getting Cups");
                 var reader = cmd.ExecuteReader();
-                
+
                 while (reader.Read())
                 {
-                    cups.Add(new Cup(reader.GetInt32(0),reader.GetString(1),(((double) reader.GetInt32(2))/100),
-                        reader.GetString(3).Split(',').ToList(),reader.GetString(4).Split(',').ToList(),reader.GetString(5)));
+                    cups.Add(new Cup(reader.GetInt32(0), reader.GetString(1), (((double) reader.GetInt32(2)) / 100),
+                        reader.GetString(3).Split(',').ToList(), reader.GetString(4).Split(',').ToList(),
+                        reader.GetString(5)));
                 }
+
                 dbCon.Close();
             }
-
-            
         }
         catch (Exception e)
         {
             Console.WriteLine($"Cannot connect to Database!\n{e}");
         }
+
         return cups;
     }
 }

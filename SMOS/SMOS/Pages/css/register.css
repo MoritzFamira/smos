@@ -11,6 +11,7 @@
     padding-bottom: 2rem;
     border-radius: 8px;
 }
+
 .reg-input {
     display: flex;
     flex-direction: row;
@@ -18,56 +19,67 @@
     margin: 1vh;
     width: 80%;
 }
+
 .log-input {
     margin: 1vh;
     width: 70%;
     padding: 0.5vh 1vh 0.5vh 1vh;
     border-radius: 8px;
 }
+
 .reg-button-text {
     display: flex;
     flex-direction: row;
     width: 100%;
 }
+
 .create-account-reg {
     border-radius: 8px;
     margin: 3vh 0 3vh 25%;
     padding: 1vh 2vh 1vh 2vh;
     background-color: var(--bgc);
     color: var(--tc);
-    border: none;    
+    border: none;
 }
-.button-login-reg{
+
+.button-login-reg {
     font-weight: bold;
 }
+
 .button-login-reg:hover {
     text-decoration: underline;
 }
+
 .text-reg {
     margin-top: 3vh;
     margin-left: 15%;
     font-size: large;
 }
+
 @media (max-width: 950px) {
-    .reg-input{
+    .reg-input {
         display: flex;
         flex-direction: column;
         justify-content: center;
         margin: 1vh;
         width: 80%;
     }
-    .log-input{
+
+    .log-input {
         width: 90%;
     }
-    .reg-button-text{
+
+    .reg-button-text {
         width: 100%;
         margin-right: 1vh;
     }
-    .text-reg{
+
+    .text-reg {
         font-size: 100%;
     }
-    .create-account-reg{   
-        height: 80%;     
+
+    .create-account-reg {
+        height: 80%;
         margin-left: 11%;
         padding-left: 5%;
         padding-right: 5%;

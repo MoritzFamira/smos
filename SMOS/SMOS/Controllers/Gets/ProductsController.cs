@@ -9,7 +9,6 @@ namespace SMOS.Controllers.Gets;
 [Route("api/getproduct")]
 public class ProductsController : ControllerBase
 {
-
     [HttpGet(Name = "getproduct")]
     public IEnumerable<Product> Get()
     {
@@ -26,20 +25,20 @@ public class ProductsController : ControllerBase
                 var cmd = new MySqlCommand(getProducts, dbCon.Connection);
                 Console.WriteLine("Getting Products");
                 var reader = cmd.ExecuteReader();
-                
+
                 while (reader.Read())
                 {
                     products.Add(new Product(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2)));
                 }
+
                 dbCon.Close();
             }
-
-            
         }
         catch (Exception e)
         {
             Console.WriteLine($"Cannot connect to Database!\n{e}");
         }
+
         return products;
     }
 }

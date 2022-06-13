@@ -29,7 +29,7 @@ builder.Services.AddAuthentication(x =>
         ValidateAudience = false
     };
 });
-builder.Services.AddSingleton <IJwtAuthenticationManager>(new JwtAuthenticationManager(key));
+builder.Services.AddSingleton<IJwtAuthenticationManager>(new JwtAuthenticationManager(key));
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -158,7 +158,7 @@ set foreign_key_checks = 1;";
 }
 catch (Exception e)
 {
-    Console.WriteLine("Cannot connect to Database!\n"+e.StackTrace);
+    Console.WriteLine("Cannot connect to Database!\n" + e.StackTrace);
 }
 
 

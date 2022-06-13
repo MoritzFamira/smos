@@ -25,21 +25,22 @@ public class TShirtController : ControllerBase
                 var cmd = new MySqlCommand(getProducts, dbCon.Connection);
                 Console.WriteLine("Getting TShirts");
                 var reader = cmd.ExecuteReader();
-                
+
                 while (reader.Read())
-                { 
-                    tShirts.Add(new TShirt(reader.GetInt32(0),reader.GetString(1),((double) reader.GetInt32(2))/100,
-                        reader.GetString(3).Split(',').ToList(),reader.GetString(4).Split(',').ToList(),reader.GetString(5)));
+                {
+                    tShirts.Add(new TShirt(reader.GetInt32(0), reader.GetString(1), ((double) reader.GetInt32(2)) / 100,
+                        reader.GetString(3).Split(',').ToList(), reader.GetString(4).Split(',').ToList(),
+                        reader.GetString(5)));
                 }
+
                 dbCon.Close();
             }
-
-            
         }
         catch (Exception e)
         {
             Console.WriteLine($"Cannot connect to Database!\n{e}");
         }
+
         return tShirts;
     }
 }

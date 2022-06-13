@@ -57,7 +57,7 @@ function buildNav(prefix) {
                         <div>
                             <!-- navbar button -->
                             <button class="clean-button normal-colors">
-                                <a href="`+prefix +`pages/voting.html">Voting</a>
+                                <a href="` + prefix + `pages/voting.html">Voting</a>
                             </button>
                             
                         </div>
@@ -218,7 +218,7 @@ function buildNav(prefix) {
     </div>`
 }
 
-function buildFooter(prefix){
+function buildFooter(prefix) {
     return `<div class="footer">
     <div class="footer-container">
       <div class="footer-row">

@@ -11,15 +11,16 @@ public class UploadController : ControllerBase
 {
     [HttpPost(Name = "Upload")]
     //int artist is a user ID
-    public HttpResponseMessage UploadFile([FromForm] IFormFile file,[FromForm] int artist,[FromForm] string name)
+    public HttpResponseMessage UploadFile([FromForm] IFormFile file, [FromForm] int artist, [FromForm] string name)
     {
         try
         {
-            Console.WriteLine("Datei: "+file.FileName);
+            Console.WriteLine("Datei: " + file.FileName);
             //TODO check if file is right file type etc.
             //Console.WriteLine(Directory.GetCurrentDirectory());
-            string uploads = Path.GetFullPath(Directory.GetCurrentDirectory())+"/Pages/Uploads";
-            if (file.Length > 0) {
+            string uploads = Path.GetFullPath(Directory.GetCurrentDirectory()) + "/Pages/Uploads";
+            if (file.Length > 0)
+            {
                 //TODO handle different filetypes (.jpeg, .jpg, .png, ...)
                 string filetype = "";
                 if (file.FileName.EndsWith(".png"))
@@ -31,17 +32,18 @@ public class UploadController : ControllerBase
                 {
                     filetype = ".jpg";
                 }
-                        
+
 
                 Guid guid = Guid.NewGuid();
                 Console.WriteLine(guid);
-                
-                string filePath = Path.Combine(uploads,/* this parameter will be the file name */ guid.ToString()+filetype);
+
+                string filePath = Path.Combine(uploads, /* this parameter will be the file name */
+                    guid.ToString() + filetype);
                 Stream fileStream = new FileStream(filePath, FileMode.Create);
                 file.CopyTo(fileStream);
                 //await file.CopyToAsync(fileStream);
                 fileStream.Close();
-                
+
                 var dbCon = DBConnection.Instance();
                 //this is needed to reset the connection
                 dbCon.Reset();
@@ -55,7 +57,7 @@ public class UploadController : ControllerBase
 insert into du_votes ( du_u_id, du_d_guid, du_isupvote)
     value (1,@guid,false);";
                         var cmd = new MySqlCommand(addDesign, dbCon.Connection);
-                
+
                         cmd.Parameters.AddWithValue("@guid", guid.ToString());
                         cmd.Parameters.AddWithValue("@artist", artist);
                         cmd.Parameters.AddWithValue("@filetype", filetype);
@@ -64,7 +66,6 @@ insert into du_votes ( du_u_id, du_d_guid, du_isupvote)
                         Console.WriteLine("Adding Design");
                         cmd.ExecuteNonQuery();
                         dbCon.Close();
-                        
                     }
                 }
                 catch (Exception e)
@@ -73,6 +74,7 @@ insert into du_votes ( du_u_id, du_d_guid, du_isupvote)
                     return new HttpResponseMessage(HttpStatusCode.Conflict);
                 }
             }
+
             return new HttpResponseMessage(HttpStatusCode.OK);
         }
         catch (Exception e)

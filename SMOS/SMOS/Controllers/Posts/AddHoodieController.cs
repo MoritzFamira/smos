@@ -13,8 +13,8 @@ namespace SMOS.Controllers.Posts;
 public class AddHoodieController : ControllerBase
 {
     [HttpPost(Name = "AddHoodie")]
-    public HttpResponseMessage Post([FromForm] string size,[FromForm] string color,
-        [FromForm] string description,[FromForm] string name,[FromForm] int price)
+    public HttpResponseMessage Post([FromForm] string size, [FromForm] string color,
+        [FromForm] string description, [FromForm] string name, [FromForm] int price)
     {
         //Console.WriteLine("product: "+product);
         //Console.WriteLine("size: "+size);
@@ -31,9 +31,9 @@ public class AddHoodieController : ControllerBase
                 string addProduct = @"use mos; 
 insert into h_hoodies(h_id,h_name,h_price, h_size, h_color, h_description)
 VALUE (null,@name,@price,@size,@color,@description);";
-                var cmd = new MySqlCommand(addProduct,dbCon.Connection);
-                
-                
+                var cmd = new MySqlCommand(addProduct, dbCon.Connection);
+
+
                 cmd.Parameters.AddWithValue("@size", size);
                 cmd.Parameters.AddWithValue("@color", color);
                 cmd.Parameters.AddWithValue("@description", description);
@@ -52,5 +52,4 @@ VALUE (null,@name,@price,@size,@color,@description);";
 
         return new HttpResponseMessage(HttpStatusCode.OK);
     }
-    
 }

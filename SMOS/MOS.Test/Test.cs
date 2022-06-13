@@ -10,6 +10,7 @@ namespace MOS.Test;
 public class Tests
 {
     private static HttpClient client = new HttpClient();
+
     [SetUp]
     public void Setup()
     {

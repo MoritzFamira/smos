@@ -14,15 +14,21 @@ function changeStyle(root) {
     switch (true) {
         case localStorage.theme == "theme-light":
             setStyle(root, 'rgb(255, 255, 255)', 'rgb(233, 233, 233)', 'rgb(0, 0, 0)', "'Cabin', sans-serif");
-            setTimeout(function () { $('.logo').attr('src', getPrefix() + "img/logo.png") });
+            setTimeout(function () {
+                $('.logo').attr('src', getPrefix() + "img/logo.png")
+            });
             break;
         case localStorage.theme == "theme-hacker":
             setStyle(root, 'rgb(18, 18, 18)', 'rgb(0, 0, 0)', 'rgb(41, 194, 21)', 'H4ck3r');
-            setTimeout(function () { $('.logo').attr('src', getPrefix() + "img/logo_green.png") });
+            setTimeout(function () {
+                $('.logo').attr('src', getPrefix() + "img/logo_green.png")
+            });
             break;
         default:
             setStyle(root, 'rgb(50, 50, 50)', 'rgb(40, 40, 40)', 'rgb(255, 255, 255)', "'Cabin', sans-serif");
-            setTimeout(function () { $('.logo').attr('src', getPrefix() + "img/logo.png") });
+            setTimeout(function () {
+                $('.logo').attr('src', getPrefix() + "img/logo.png")
+            });
             break;
     }
 }

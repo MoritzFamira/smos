@@ -13,7 +13,7 @@ namespace SMOS.Controllers.Posts;
 public class AddUser
 {
     [HttpPost(Name = "AddUser")]
-    public HttpResponseMessage Post([FromForm] string name,[FromForm] string password)
+    public HttpResponseMessage Post([FromForm] string name, [FromForm] string password)
     {
         var dbCon = DBConnection.Instance();
         //this is needed to reset the connection
@@ -26,9 +26,9 @@ public class AddUser
                 string addProduct = @"use mos; 
 insert into u_users (u_id, u_name, u_isadmin, u_dateofcreation, u_password)
     value (null,@name,false,current_date,sha2(@password,256));";
-                var cmd = new MySqlCommand(addProduct,dbCon.Connection);
-                
-                
+                var cmd = new MySqlCommand(addProduct, dbCon.Connection);
+
+
                 cmd.Parameters.AddWithValue("@name", name);
                 cmd.Parameters.AddWithValue("@password", password);
                 Console.WriteLine("Adding User");
@@ -45,6 +45,5 @@ insert into u_users (u_id, u_name, u_isadmin, u_dateofcreation, u_password)
         }
 
         return new HttpResponseMessage(HttpStatusCode.BadRequest);
-
     }
 }

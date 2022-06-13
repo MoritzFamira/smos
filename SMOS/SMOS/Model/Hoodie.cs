@@ -2,7 +2,8 @@
 
 public class Hoodie : Product
 {
-    public Hoodie(int id, string name, double price, List<string> size, List<string> color, string description) : base(id, name, price)
+    public Hoodie(int id, string name, double price, List<string> size, List<string> color, string description) : base(
+        id, name, price)
     {
         Size = size;
         Color = color;
@@ -11,6 +12,7 @@ public class Hoodie : Product
 
     public List<string> Size { get; }
     public List<string> Color { get; }
+
     public string Description { get; }
     //public string Name { get; }
 }

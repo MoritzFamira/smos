@@ -2,7 +2,8 @@
 
 public class TShirt : Product
 {
-    public TShirt(int id, string name, double price, List<string> size, List<string> color, string description) : base(id, name, price)
+    public TShirt(int id, string name, double price, List<string> size, List<string> color, string description) : base(
+        id, name, price)
     {
         Size = size;
         Color = color;

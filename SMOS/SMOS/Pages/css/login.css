@@ -2,12 +2,12 @@
 /*########################################################################################################*/
 
 
-
-.log-title{
-    margin: auto; 
+.log-title {
+    margin: auto;
     margin-bottom: 2%;
 }
-.log-form{
+
+.log-form {
     background-color: var(--bgcd);
     margin: 4%;
     margin-top: 2%;
@@ -20,14 +20,16 @@
     border-radius: 5px;
     display: flex;
     flex-direction: column;
-    
+
 
 }
+
 .inputarea {
     display: flex;
     flex-direction: column;
 }
-.logbttn-area{
+
+.logbttn-area {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -41,8 +43,9 @@
     padding-left: 2%;
     padding-right: 2%;
     border-radius: 8px;
-    
+
 }
+
 .log-button {
     background-color: var(--bgc);
     border: none;
@@ -57,11 +60,13 @@
     border-radius: 8px;
 
 }
-.reg-btn{
-    font-weight:bold;
+
+.reg-btn {
+    font-weight: bold;
 }
+
 .reg-btn:hover {
-    
+
     text-decoration: underline;
 
-  }
+}

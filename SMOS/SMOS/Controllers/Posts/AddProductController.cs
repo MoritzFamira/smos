@@ -12,7 +12,7 @@ namespace SMOS.Controllers.Posts;
 public class AddProductController : ControllerBase
 {
     [HttpPost(Name = "AddProduct")]
-    public HttpResponseMessage Post([FromForm] string name,[FromForm] int price)
+    public HttpResponseMessage Post([FromForm] string name, [FromForm] int price)
     {
         //Console.WriteLine("name: "+name);
         //Console.WriteLine("price: "+price);
@@ -26,9 +26,9 @@ public class AddProductController : ControllerBase
                 string addProduct = @"use mos; 
 insert into p_products (p_id, p_name, p_price)
 VALUE (null,@name,@price);";
-                var cmd = new MySqlCommand(addProduct,dbCon.Connection);
-                
-                
+                var cmd = new MySqlCommand(addProduct, dbCon.Connection);
+
+
                 cmd.Parameters.AddWithValue("@name", name);
                 cmd.Parameters.AddWithValue("@price", price);
                 Console.WriteLine("Adding Product");
@@ -44,5 +44,4 @@ VALUE (null,@name,@price);";
 
         return new HttpResponseMessage(HttpStatusCode.OK);
     }
-    
 }

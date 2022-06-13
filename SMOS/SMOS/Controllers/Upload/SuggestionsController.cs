@@ -29,7 +29,8 @@ where d_approved = false;";
                 while (reader.Read())
                 {
                     //string filename = reader.GetString(0) + reader.GetString(1);
-                    designs.Add(new Design(reader.GetString(1),reader.GetString(0), reader.GetString(2),reader.GetString(4)));
+                    designs.Add(new Design(reader.GetString(1), reader.GetString(0), reader.GetString(2),
+                        reader.GetString(4)));
                 }
 
                 dbCon.Close();

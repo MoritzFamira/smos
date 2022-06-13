@@ -33,8 +33,6 @@
 }
 
 
-
-
 /*  WAVE_CONTENT STUFF  */
 
 .wave {
@@ -65,7 +63,6 @@
     padding: 10px;
 
 
-
 }
 
 .card-area-wrap .card-inner {
@@ -86,15 +83,11 @@
 }
 
 
-
-
-
 .card-area-wrap .card-bottom .card-info {
 
     font-size: 18px;
     margin-bottom: 5px;
 }
-
 
 
 @media (max-width: 1024px) {
@@ -182,15 +175,11 @@
 }
 
 
-
-
-
 .re-card-area-wrap .re-card-bottom .re-card-info {
 
     font-size: 18px;
     margin-bottom: 5px;
 }
-
 
 
 @media (max-width: 1024px) {

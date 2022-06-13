@@ -12,8 +12,8 @@
                 $('.errormsg').html("Error: Please enter password!")
                 return;
         }
-        $.post("../../api/adduser", $('#form').serialize() ,function(data){
-            switch (true){
+        $.post("../../api/adduser", $('#form').serialize(), function (data) {
+            switch (true) {
                 case data.statusCode == "409":
                     $('.errormsg').html("Error: User already exists!");
                     break;

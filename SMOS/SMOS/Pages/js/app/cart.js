@@ -68,4 +68,5 @@ function removeItem() {
     });
 }
 
-function buildNavbarCart() { }
+function buildNavbarCart() {
+}

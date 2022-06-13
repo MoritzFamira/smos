@@ -22,7 +22,8 @@ public class AllVotesController : ControllerBase
             //(select du_isupvote from du_votes where du_u_id = @user) as user_voted
             if (dbCon.IsConnect())
             {
-                string getVotings = @"use mos; select d_name,d_filetype, du_d_guid,artist.u_name, sum(du_isupvote) as number_of_votes
+                string getVotings =
+                    @"use mos; select d_name,d_filetype, du_d_guid,artist.u_name, sum(du_isupvote) as number_of_votes
 from du_votes
 inner join d_designs d on du_votes.du_d_guid = d.d_guid
 inner join u_users artist on d.d_u_artist = artist.u_id
@@ -35,19 +36,19 @@ group by du_d_guid;";
 
                 while (reader.Read())
                 {
-                    votings.Add(new Voting(reader.GetString(0),reader.GetString(1),
-                        Guid.Parse(reader.GetString(2)),reader.GetString(3),reader.GetInt32(4)));
+                    votings.Add(new Voting(reader.GetString(0), reader.GetString(1),
+                        Guid.Parse(reader.GetString(2)), reader.GetString(3), reader.GetInt32(4)));
                 }
+
                 dbCon.Close();
             }
-
-            
         }
         catch (Exception e)
         {
             Console.WriteLine($"Cannot connect to Database!\n{e}");
             throw;
         }
+
         return votings;
     }
 }

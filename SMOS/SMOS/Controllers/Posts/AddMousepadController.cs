@@ -13,8 +13,8 @@ namespace SMOS.Controllers.Posts;
 public class AddMousepadController : ControllerBase
 {
     [HttpPost(Name = "AddMousepad")]
-    public HttpResponseMessage Post([FromForm] string name,[FromForm] int price,
-    [FromForm] string size,[FromForm] string color,[FromForm] string description)
+    public HttpResponseMessage Post([FromForm] string name, [FromForm] int price,
+        [FromForm] string size, [FromForm] string color, [FromForm] string description)
     {
         var dbCon = DBConnection.Instance();
         //this is needed to reset the connection
@@ -26,9 +26,9 @@ public class AddMousepadController : ControllerBase
                 string addProduct = @"use mos; 
 insert into m_mousepads (m_id,m_name,m_price,m_size,m_color, m_description)
 VALUE (null,@name,@price, @size,@color,@description);";
-                var cmd = new MySqlCommand(addProduct,dbCon.Connection);
-                
-                
+                var cmd = new MySqlCommand(addProduct, dbCon.Connection);
+
+
                 cmd.Parameters.AddWithValue("@size", size);
                 cmd.Parameters.AddWithValue("@description", description);
                 cmd.Parameters.AddWithValue("@name", name);
@@ -47,5 +47,4 @@ VALUE (null,@name,@price, @size,@color,@description);";
 
         return new HttpResponseMessage(HttpStatusCode.OK);
     }
-    
 }

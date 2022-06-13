@@ -2,7 +2,8 @@
 
 public class MousePad : Product
 {
-    public MousePad(int id, string name, double price, List<string> size, List<string> color, string description) : base(id, name, price)
+    public MousePad(int id, string name, double price, List<string> size, List<string> color, string description) :
+        base(id, name, price)
     {
         Size = size;
         Color = color;

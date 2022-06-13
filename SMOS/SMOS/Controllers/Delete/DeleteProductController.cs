@@ -22,7 +22,7 @@ public class DeleteProductController : ControllerBase
             {
                 string deleteProduct = @"use mos; 
                     DELETE FROM p_products WHERE p_id=@id";
-                var cmd = new MySqlCommand(deleteProduct,dbCon.Connection);
+                var cmd = new MySqlCommand(deleteProduct, dbCon.Connection);
                 cmd.Parameters.AddWithValue("@id", id);
                 Console.WriteLine("Deleting Product");
                 cmd.ExecuteNonQuery();
@@ -34,6 +34,7 @@ public class DeleteProductController : ControllerBase
             Console.WriteLine($"Cannot connect to Database!\n{e}");
             return new HttpResponseMessage(HttpStatusCode.Conflict);
         }
+
         var response = new HttpResponseMessage();
         response.Headers.Add("DeleteMessage", "Succsessfuly Deleted!!!");
 

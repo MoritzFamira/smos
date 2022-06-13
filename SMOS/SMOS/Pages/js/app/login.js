@@ -16,8 +16,8 @@ $(document).ready(function () {
             localStorage.setItem("userid", data.userid)
             localStorage.setItem("jwt", data.jwt)
         });
-        switch (true){
-            case response.statusCode=="403":
+        switch (true) {
+            case response.statusCode == "403":
                 $('.errormsg').html("Error: Wrong password or username!")
                 break;
             default:

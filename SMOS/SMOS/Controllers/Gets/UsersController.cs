@@ -4,6 +4,7 @@ using SMOS.DataBase;
 using SMOS.Model;
 
 namespace SMOS.Controllers.Gets;
+
 [ApiController]
 [Route("api/GetUsers")]
 public class UsersController
@@ -24,12 +25,13 @@ from u_users;";
                 MySqlCommand cmd = new MySqlCommand(getUsers, dbCon.Connection);
                 Console.WriteLine("Getting Users");
                 var reader = cmd.ExecuteReader();
-                
+
                 while (reader.Read())
                 {
-                    users.Add(new User(reader.GetInt32(0),reader.GetString(1),
-                        reader.GetBoolean(2),reader.GetDateTime(3)));
+                    users.Add(new User(reader.GetInt32(0), reader.GetString(1),
+                        reader.GetBoolean(2), reader.GetDateTime(3)));
                 }
+
                 dbCon.Close();
             }
         }

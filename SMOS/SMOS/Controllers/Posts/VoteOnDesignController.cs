@@ -6,11 +6,10 @@ using SMOS.DataBase;
 
 namespace SMOS.Controllers.Posts;
 
-//[Authorize]
+[Authorize]
 [Route("api/Vote")]
 public class VoteOnDesignController
 {
-    //TODO might want to change the return type to something more useful
     [HttpPost(Name = "Vote")]
     public HttpResponseMessage Post([FromForm] int userId, [FromForm] string designGuid, [FromForm] bool isUpvote)
     {
@@ -21,56 +20,53 @@ public class VoteOnDesignController
         {
             if (dbCon.IsConnect())
             {
+                // query that adds a vote for the specified design, by the specified user
                 string addVote = @"use mos; 
-insert into du_votes ( du_u_id, du_d_guid, du_isupvote)
-    value (@user,@design,@isupvote);";
-                var cmd = new MySqlCommand(addVote,dbCon.Connection);
-                
-                
+                insert into du_votes ( du_u_id, du_d_guid, du_isupvote)
+                value (@user,@design,@isupvote);";
+                var cmd = new MySqlCommand(addVote, dbCon.Connection);
+
+                // setting parameters for query
                 cmd.Parameters.AddWithValue("@user", userId);
                 cmd.Parameters.AddWithValue("@design", designGuid);
                 cmd.Parameters.AddWithValue("@isupvote", isUpvote);
-                
-                //Console.WriteLine(userId + " "+designGuid+" "+isUpvote);
+
                 Console.WriteLine("Adding Vote");
                 cmd.ExecuteNonQuery();
                 dbCon.Close();
                 return new HttpResponseMessage(HttpStatusCode.Created);
             }
         }
-        catch (Exception e)
+        catch
         {
-            Console.WriteLine("User already voted." + e.StackTrace);
+            Console.WriteLine("User already voted.");
             dbCon.Reset();
             try
             {
                 if (dbCon.IsConnect())
                 {
-                    string addVote = @"use mos; delete
-from du_votes
-where du_u_id = @user and du_d_guid = @design";
-                    var cmd = new MySqlCommand(addVote, dbCon.Connection);
+                    // query that removes a vote for the specified design, by the specified user
+                    string removeVote = @"use mos; delete
+                    from du_votes
+                    where du_u_id = @user and du_d_guid = @design";
+                    var cmd = new MySqlCommand(removeVote, dbCon.Connection);
 
-
+                    // setting parameters for query
                     cmd.Parameters.AddWithValue("@user", userId);
                     cmd.Parameters.AddWithValue("@design", designGuid);
-                    //cmd.Parameters.AddWithValue("@isupvote", isUpvote);
 
-                    //Console.WriteLine(userId + " "+designGuid+" "+isUpvote);
-                    Console.WriteLine("Adding Vote");
+                    Console.WriteLine("Removing Vote");
                     cmd.ExecuteNonQuery();
                     dbCon.Close();
                     return new HttpResponseMessage(HttpStatusCode.Created);
                 }
             }
-            catch (Exception ex)
+            catch
             {
                 return new HttpResponseMessage(HttpStatusCode.Conflict);
             }
-            //return new HttpResponseMessage(HttpStatusCode.Conflict);
         }
+
         return new HttpResponseMessage(HttpStatusCode.BadRequest);
     }
-
-    
 }

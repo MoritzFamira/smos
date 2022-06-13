@@ -17,8 +17,12 @@ async function buildProduct() {
     var result = '';
     await $.getJSON('../../api/get' + getFileName(), (p) => {
         p.forEach((p) => {
-            p.color.forEach((c) => { colors += '<option>' + c + '</option>' });
-            p.size.forEach((s) => { sizes += '<option>' + s + '</option>' });
+            p.color.forEach((c) => {
+                colors += '<option>' + c + '</option>'
+            });
+            p.size.forEach((s) => {
+                sizes += '<option>' + s + '</option>'
+            });
             result = `<div class="parent padding-top">
             <div class="product_child_image relative">
                 <img class="product_image_img" src="../img/products/` + p.name + `_` + p.color[0] + `.png">
@@ -55,7 +59,7 @@ async function buildDesigns() {
     var result = '';
     await $.getJSON('../../api/getalldesigns', (d) => {
         d.forEach((d) => {
-            sessionStorage.setItem(d.guid,d.fileEnding)
+            sessionStorage.setItem(d.guid, d.fileEnding)
             result += `<div class="product_designs">
                 <img class="product_designs_img" src="../Uploads/` + d.guid + d.fileEnding + `">
                 <div class="product_designs_des"> 
@@ -74,8 +78,8 @@ function addtoCart() {
         switch (true) {
 
             case $('.product_design_image_img').attr('src') == '#' &&
-                $('#select-size :selected').val() == '' &&
-                document.getElementById("select-size").childElementCount > 1:
+            $('#select-size :selected').val() == '' &&
+            document.getElementById("select-size").childElementCount > 1:
 
                 //error no design and size
                 $('#addtoCartmessage').html('Please select size and design!');
@@ -90,7 +94,7 @@ function addtoCart() {
                 break;
 
             case $('#select-size :selected').val() == '' &&
-                document.getElementById("select-size").childElementCount > 1:
+            document.getElementById("select-size").childElementCount > 1:
 
                 //error no size
                 $('#addtoCartmessage').html('Please select a size!');
@@ -101,7 +105,7 @@ function addtoCart() {
 
                 //adding to cart
                 var id = $('.product_design_image_img').attr('src').split("/").pop().slice(0, -4);
-                
+
                 var cart = JSON.parse(localStorage.cart);
 
                 cart.push([
