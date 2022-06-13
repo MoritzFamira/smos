@@ -30,16 +30,15 @@ public class VoteOnDesignController
                 cmd.Parameters.AddWithValue("@user", userId);
                 cmd.Parameters.AddWithValue("@design", designGuid);
                 cmd.Parameters.AddWithValue("@isupvote", isUpvote);
-
-                Console.WriteLine("Adding Vote");
+                
                 cmd.ExecuteNonQuery();
                 dbCon.Close();
+                Console.WriteLine("Adding Vote");
                 return new HttpResponseMessage(HttpStatusCode.Created);
             }
         }
-        catch
+        catch (Exception e)
         {
-            Console.WriteLine("User already voted.");
             dbCon.Reset();
             try
             {
@@ -54,11 +53,11 @@ public class VoteOnDesignController
                     // setting parameters for query
                     cmd.Parameters.AddWithValue("@user", userId);
                     cmd.Parameters.AddWithValue("@design", designGuid);
-
-                    Console.WriteLine("Removing Vote");
+                    
                     cmd.ExecuteNonQuery();
                     dbCon.Close();
-                    return new HttpResponseMessage(HttpStatusCode.Created);
+                    Console.WriteLine("Removing Vote");
+                    return new HttpResponseMessage(HttpStatusCode.OK);
                 }
             }
             catch
@@ -66,7 +65,6 @@ public class VoteOnDesignController
                 return new HttpResponseMessage(HttpStatusCode.Conflict);
             }
         }
-
         return new HttpResponseMessage(HttpStatusCode.BadRequest);
     }
 }
