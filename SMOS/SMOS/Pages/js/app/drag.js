@@ -32,8 +32,11 @@ async function dragfetch(){
             body: formData,
             enctype: "multipart/form-data"
         });
+        let result = await response.json();
+        console.log(result)
         document.getElementById('upload-form').reset();
-        formData.reset();
+        //formData.reset();
         dropfile = "";
+        location.reload();
     }
 }

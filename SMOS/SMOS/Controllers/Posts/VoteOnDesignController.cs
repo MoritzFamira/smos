@@ -41,8 +41,33 @@ insert into du_votes ( du_u_id, du_d_guid, du_isupvote)
         catch (Exception e)
         {
             Console.WriteLine("User already voted." + e.StackTrace);
-            return new HttpResponseMessage(HttpStatusCode.Conflict);
-            Console.WriteLine($"Cannot connect to Database!\n{e}");
+            dbCon.Reset();
+            try
+            {
+                if (dbCon.IsConnect())
+                {
+                    string addVote = @"use mos; delete
+from du_votes
+where du_u_id = @user and du_d_guid = @design";
+                    var cmd = new MySqlCommand(addVote, dbCon.Connection);
+
+
+                    cmd.Parameters.AddWithValue("@user", userId);
+                    cmd.Parameters.AddWithValue("@design", designGuid);
+                    //cmd.Parameters.AddWithValue("@isupvote", isUpvote);
+
+                    //Console.WriteLine(userId + " "+designGuid+" "+isUpvote);
+                    Console.WriteLine("Adding Vote");
+                    cmd.ExecuteNonQuery();
+                    dbCon.Close();
+                    return new HttpResponseMessage(HttpStatusCode.Created);
+                }
+            }
+            catch (Exception ex)
+            {
+                return new HttpResponseMessage(HttpStatusCode.Conflict);
+            }
+            //return new HttpResponseMessage(HttpStatusCode.Conflict);
         }
         return new HttpResponseMessage(HttpStatusCode.BadRequest);
     }
