@@ -1,0 +1,121 @@
+/*############################################## product stuff #############################################*/
+/*##########################################################################################################*/
+
+.product_child_image {
+    width: 30%;
+    min-width: 20rem;
+    padding-top: 2rem;
+    height: calc(100vh - 20%);
+}
+
+.product_child_des {
+    width: 30%;
+    padding: 1rem;
+}
+
+.product_child_des > * {
+    margin: 1rem;
+}
+
+.product_child_designs {
+    width: 30%;
+    min-width: 20rem;
+    max-height: 80vh;
+    margin-top: 0.5rem;
+    overflow-y: scroll;
+    flex-wrap: wrap;
+}
+
+.product_image_img {
+    height: auto;
+    width: 100%;
+}
+
+.product_design_image_img {
+    position: absolute;
+    width: 25%;
+    height: auto;
+    left: 35%;
+    top: calc(25% + 2.8vh);
+}
+
+.product_designs {
+    display: flex;
+    flex-direction: row;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    position: relative;
+    width: auto;
+    background-color: var(--bgcd);
+}
+
+.product_designs_img {
+    max-height: 4.5rem;
+    width: auto;
+}
+
+.product_designs_des {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    max-width: 55%;
+    word-break: break-all;
+    padding-left: 0.5rem;
+}
+
+.product_designs_des > h4 {
+    font-size: 1.2rem;
+}
+
+.product_designs_des > h3 {
+    font-size: 0.8rem;
+}
+
+.product_designs_btn {
+    position: absolute;
+    bottom: 0.5rem;
+    right: 0.5rem;
+    border: 0.1rem solid var(--tc);
+}
+
+.product_addcart_btn {
+    border: 0.1rem solid var(--tc);
+}
+
+@media (max-width: 650px) {
+    .product_child_image {
+        width: 80%;
+    }
+
+    .product_child_des {
+        width: 100%;
+    }
+
+    .product_designs_des {
+        max-width: 45% !important;
+    }
+
+    .product_designs {
+        width: 80% !important;
+    }
+}
+
+@media (max-width: 925px) {
+    .product_child_designs {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        max-height: 30rem;
+    }
+
+    .product_designs {
+        width: calc(100% / 2.5);
+        min-width: 15rem;
+    }
+
+    .product_designs_des {
+        max-width: 45%;
+    }
+}
