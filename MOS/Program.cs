@@ -55,7 +55,7 @@ app.MapControllers();
 app.UseFileServer(new FileServerOptions
 {
     FileProvider = new PhysicalFileProvider(
-        Path.Combine(Directory.GetCurrentDirectory(), "Pages")),
+        Path.Combine(Directory.GetCurrentDirectory(), "MOS/Pages")),
     RequestPath = ""
 });
 
