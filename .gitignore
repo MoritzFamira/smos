@@ -4,3 +4,5 @@
 **/SMOS/obj
 **/.idea
 *sln.DotSettings.user
+**/obj
+**/bin
